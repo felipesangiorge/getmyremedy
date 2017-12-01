@@ -20,4 +20,10 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
+  remedyById(id:string):Observable<Remedy>{
+    return this.http.get(`${GMR_API}/remedys/${id}`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
 }

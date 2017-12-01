@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { RemedysComponent } from './components/remedys/remedys.component';
 import { RemedyComponent } from './components/remedys/remedy/remedy.component';
+import { RemedyDetailsComponent } from './components/remedys/remedy-details/remedy-details.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RemedyComponent } from './components/remedys/remedy/remedy.component';
     HomeComponent,
     AboutComponent,
     RemedysComponent,
-    RemedyComponent
+    RemedyComponent,
+    RemedyDetailsComponent
   ],
   imports: [
     BrowserModule,
