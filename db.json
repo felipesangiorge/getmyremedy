@@ -1,55 +1,115 @@
 {
   "remedys":[{
-    "id":"aspirina",
+    "id":"Aspirina",
     "name":"Aspirina",
     "category":"Analgesicos",
     "dosage":"10ml",
-    "validateDate":"12/12/2018",
     "description":"A Aspirina é um remédio que contém como substância ativa o ácido acetilsalicílico,que é um anti-inflamatório não esteroide, que serve para aliviar a dor e baixar a febre em adultos e crianças.",
     "imagePath":"assets/img/remedys/remedy.jpg"
   },
     {
-    "id":"novalgina",
+    "id":"Novalgina",
     "name":"Novalgina",
     "category":"Generico",
     "dosage":"1ml",
-    "validateDate":"12/01/2019",
     "description":"Novalgina é o analgésico que combate dores intensas e febre, até mesmo as causadas pela Dengue, Zica e Chikungunya.",
     "imagePath":"assets/img/remedys/novalgina.jpg"
   },{
-    "id":"acetildor",
+    "id":"Acetildor",
     "name":"Acetildor",
     "category":"Analgesicos",
     "dosage":"10ml",
     "description":"Para o alívio sintomático de cefaléia, odontalgia, dor de garganta, dismenorréia, mialgia ou artralgia, lombalgia e dor artrítica de pequena intensidade. ",
-    "validateDate":"12/12/2018",
     "imagePath":"assets/img/remedys/acetildor.jpg"
   },
     {
-    "id":"benegrip",
+    "id":"Benegrip",
     "name":"Benegrip",
     "category":"Generico",
     "dosage":"1ml",
     "description":"Benegrip Multi: Paracetamol, cloridrato de fenilefrina e maleato de carbinoxamina. MS 1.7817.0768. Indicações: Analgésico e antitérmico. Descongestionante nasal em processos de vias aéreas superiores. Abril /2017",
-    "validateDate":"12/01/2019",
     "imagePath":"assets/img/remedys/benegrip.jpg"
     },{
-      "id":"calminex",
+      "id":"Calminex",
       "name":"Calminex",
       "category":"Analgesicos",
       "dosage":"10ml",
       "description":"Calminex H - salicilato de metila + ASSOCIAÇÃO. Indicações: indicado nos processos dolorosos de articulações e massa muscular, em contusões, luxações, nevralgias, torcicolos, cãibras e traumatismos musculoesqueléticos.",
-      "validateDate":"12/12/2018",
       "imagePath":"assets/img/remedys/calminex.jpg"
     },
       {
-      "id":"paracetamol",
+      "id":"Paracetamol",
       "name":"Paracetamol",
       "category":"Generico",
       "dosage":"1ml",
       "description":"Paracetamol ou acetaminofeno é um fármaco com propriedades analgésicas, mas sem propriedades antiinflamatórias clinicamente significativas.",
-      "validateDate":"12/01/2019",
       "imagePath":"assets/img/remedys/paracetamol.jpg"
-      }
-    ]
+    }
+  ],"comments":[
+        {
+          "name":"Felipe",
+          "date":"2018-12-02T18:25:43",
+          "text":"Me ajudou muito no tratamento",
+          "remedyId":"Aspirina"
+        },{
+          "name":"Lucas",
+          "date":"2018-13-02T18:25:43",
+          "text":"Não teve efeitos colaterais, recomendo",
+          "remedyId":"Paracetamol"
+        },{
+            "name":"Gabriel",
+            "date":"2018-12-02T18:25:43",
+            "text":"Me ajudou muito no tratamento",
+            "remedyId":"Paracetamol"
+          },{
+            "name":"Flavio",
+            "date":"2018-13-02T18:25:43",
+            "text":"Não teve efeitos colaterais, recomendo",
+            "remedyId":"Aspirina"
+          }
+  ],"usersRemedys":[
+    {
+      "userName":"Felipe",
+      "userEmail":"felipe.sangiorge@gmail.com",
+      "phone":"(31) 3432-3412",
+      "name":"Novalgina",
+      "dosage":"1ml",
+      "validateDate":"12/01/2019",
+      "description":"Novalgina é o analgésico que combate dores intensas e febre, até mesmo as causadas pela Dengue, Zica e Chikungunya.",
+      "imagePath":"assets/img/remedys/novalgina.jpg",
+      "remedyId":"Novalgina"
+
+    },{
+      "userName":"Lucas",
+      "userEmail":"Lucas.sangiorge@gmail.com",
+      "phone":"(31) 3432-3412",
+      "name":"Benegrip",
+      "dosage":"1ml",
+      "description":"Benegrip Multi: Paracetamol, cloridrato de fenilefrina e maleato de carbinoxamina. MS 1.7817.0768. Indicações: Analgésico e antitérmico. Descongestionante nasal em processos de vias aéreas superiores. Abril /2017",
+      "validateDate":"12/01/2019",
+      "imagePath":"assets/img/remedys/benegrip.jpg",
+      "remedyId":"Benegrip"
+      },{
+        "userName":"Rodrigo",
+        "userEmail":"rodrigo.sangiorge@gmail.com",
+        "phone":"(31) 3432-3412",
+        "name":"Paracetamol",
+        "dosage":"1ml",
+        "description":"Paracetamol ou acetaminofeno é um fármaco com propriedades analgésicas, mas sem propriedades antiinflamatórias clinicamente significativas.",
+        "validateDate":"12/01/2019",
+        "imagePath":"assets/img/remedys/paracetamol.jpg",
+        "remedyId":"Paracetamol"
+      } ,{
+          "userName":"Airtom",
+          "userEmail":"airtom@gmail.com",
+          "phone":"(31) 3432-3412",
+          "name":"Novalgina",
+          "dosage":"1ml",
+          "validateDate":"12/01/2019",
+          "description":"Novalgina é o analgésico que combate dores intensas e febre, até mesmo as causadas pela Dengue, Zica e Chikungunya.",
+          "imagePath":"assets/img/remedys/novalgina.jpg",
+          "remedyId":"Novalgina"
+
+        }
+  ]
 }
