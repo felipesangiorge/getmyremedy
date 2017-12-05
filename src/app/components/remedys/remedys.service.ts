@@ -21,7 +21,7 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  remedyByCategory(id:string,category:string):Observable<MenuItem[]>{
+  remedyByCategory(id:string):Observable<MenuItem[]>{
     return this.http.get(`${GMR_API}/remedys/${id}/usersRemedys`)
     .map(response =>response.json())
     .catch(ErrorHandler.handleError)

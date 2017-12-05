@@ -6,6 +6,7 @@ import{ROUTES}from'./app.routes';
 
 import{RemedysService}from'./components/remedys/remedys.service'
 import {HttpModule}from'@angular/http';
+import{FormsModule}from'@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,6 +18,7 @@ import { RemedyDetailsComponent } from './components/remedys/remedy-details/reme
 import { MenuItemComponent } from './components/remedys/remedy-details/menu-item/menu-item.component';
 import { MenuComponent } from './components/remedys/remedy-details/menu/menu.component';
 import { CommentsComponent } from './components/remedys/remedy-details/comments/comments.component';
+import { RemedyRegisterComponent } from './components/remedy-register/remedy-register.component';
 
 
 @NgModule({
@@ -30,12 +32,14 @@ import { CommentsComponent } from './components/remedys/remedy-details/comments/
     RemedyDetailsComponent,
     MenuItemComponent,
     MenuComponent,
-    CommentsComponent
+    CommentsComponent,
+    RemedyRegisterComponent
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [RemedysService],
