@@ -5,73 +5,53 @@
 <section class="content">
   <div class="container">
     <div class="col-md-6">
-      {{formRemedy.valid | json}}
-      {{formRemedy.value | json}}
         <div class="box-header with-border box box-primary">
           <h3 class="box-title">Dados do remédio</h3>
             <div class="form-group">
               <form #formRemedy="ngForm" novalidate>
-                <div [class.has-success]="inputRemedyName.valid && (inputRemedyName.dirty|| inputRemedyName.touched)"
-                     [class.has-error]="!inputRemedyName.valid && (inputRemedyName.dirty|| inputRemedyName.touched)">
-                    <label for="remedyRegisterRemedyName">Nome do remédio:</label>
-                    <input type="text" class="form-control" placeholder="Coloque o nome do remédio"
-                    required #inputRemedyName="ngModel" minlength="3" ngModel name="remedyRegisterRemedyName" id="remedyRegisterRemedyName">
-                    <span class="help-block" *ngIf="inputRemedyName.valid && (inputRemedyName.dirty|| inputRemedyName.touched)"><i class="fa fa-check"></i>ok</span>
-                    <span class="help-block" *ngIf="!inputRemedyName.valid && (inputRemedyName.dirty|| inputRemedyName.touched)"><i class="fa fa-remove"></i>Campo invalido</span>
-                </div>
 
-                <div [class.has-success]="inputRemedyRemedyDosage.valid && (inputRemedyRemedyDosage.dirty|| inputRemedyRemedyDosage.touched)"
-                     [class.has-error]="!inputRemedyRemedyDosage.valid && (inputRemedyRemedyDosage.dirty|| inputRemedyRemedyDosage.touched)">
-                    <label for="remedyRegisterRemedyDosage">Doságem:</label>
-                    <input type="text" class="form-control" placeholder="Coloque a dosagem"
-                    required #inputRemedyRemedyDosage="ngModel" ngModel name="remedyRegisterRemedyDosage" id="remedyRegisterRemedyDosage">
-                    <span class="help-block" *ngIf="inputRemedyRemedyDosage.valid && (inputRemedyRemedyDosage.dirty|| inputRemedyRemedyDosage.touched)"><i class="fa fa-check"></i>ok</span>
-                    <span class="help-block" *ngIf="!inputRemedyRemedyDosage.valid && (inputRemedyRemedyDosage.dirty|| inputRemedyRemedyDosage.touched)"><i class="fa fa-remove"></i>Campo invalido</span>
-               </div>
+                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres" label="Name:">
+                    <input name="remedyRegisterRemedyName" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
+                  </gmr-input-container>
 
-                <div [class.has-success]="inputRemedyValidateDate.valid && (inputRemedyValidateDate.dirty|| inputRemedyValidateDate.touched)"
-                     [class.has-error]="!inputRemedyValidateDate.valid && (inputRemedyValidateDate.dirty|| inputRemedyValidateDate.touched)">
-                    <label for="remedyRegisterRemedyValidateDate">Data de validade:</label>
-                    <input type="text" class="form-control" placeholder="Coloque a data de validade"
-                    required #inputRemedyValidateDate="ngModel" ngModel name="remedyRegisterRemedyValidateDate" id="remedyRegisterRemedyValidateDate">
-                    <span class="help-block" *ngIf="inputRemedyValidateDate.valid && (inputRemedyValidateDate.dirty|| inputRemedyValidateDate.touched)"><i class="fa fa-check"></i>ok</span>
-                    <span class="help-block" *ngIf="!inputRemedyValidateDate.valid && (inputRemedyValidateDate.dirty|| inputRemedyValidateDate.touched)"><i class="fa fa-remove"></i>Campo invalido</span>
-                </div>
+                  <gmr-input-container errorMessage="Campo obrigatório" label="Doságem:">
+                    <input name="remedyRegisterRemedyDosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
+                  </gmr-input-container>
 
-                <div [class.has-success]="inputRemedyDescription.valid && (inputRemedyDescription.dirty|| inputRemedyDescription.touched)"
-                     [class.has-error]="!inputRemedyDescription.valid && (inputRemedyDescription.dirty|| inputRemedyDescription.touched)">
-                    <label for="remedyRegisterRemedyDescription">Descrição:</label>
-                    <textarea class="form-control" rows="4" placeholder="Descrição/Estado"
-                    required #inputRemedyDescription="ngModel" ngModel name="remedyRegisterRemedyDescription" id="remedyRegisterRemedyDescription"></textarea>
-                    <span class="help-block" *ngIf="inputRemedyDescription.valid && (inputRemedyDescription.dirty|| inputRemedyDescription.touched)"><i class="fa fa-check"></i>ok</span>
-                    <span class="help-block" *ngIf="!inputRemedyDescription.valid && (inputRemedyDescription.dirty|| inputRemedyDescription.touched)"><i class="fa fa-remove"></i>Campo invalido</span>
-              </div>
+                  <gmr-input-container errorMessage="Campo obrigatório" label="Data de válidade:">
+                    <input name="remedyRegisterRemedyValidateDate" class="form-control" placeholder="Data de válidade" ngModel required>
+                  </gmr-input-container>
+
+                  <gmr-input-container errorMessage="Campo obrigatório" label="Descrição:">
+                    <textarea name="remedyRegisterRemedyDescription" class="form-control" placeholder="Coloque a descrição" ngModel required></textarea>
+                  </gmr-input-container>
+
                 <label for="remedyRegisterRemedyFile">Coloque alguma foto:</label>
                 <input type="file" class="form-control" name="remedyRegisterRemedyFile" ngModel id="remedyRegisterRemedyFile">
               </form>
             </div>
-
-
         </div>
       </div>
 
       <div class="col-md-6">
-        {{formUser.valid | json}}
-        {{formUser.value | json}}
+
           <div class="box-header with-border box box-primary">
             <h3 class="box-title">Dados de usuário</h3>
               <div class="form-group">
                 <form #formUser="ngForm" novalidate>
-                  <label for="remedyRegisterUserName">Nome de usuário:</label>
-                  <input type="text" class="form-control" placeholder="Coloque o nome de usuário"
-                   required minlength="5" ngModel name="remedyRegisterUserName" id="remedyRegisterUserName">
 
-                  <label for="remedyRegisterUserEmail">E-mail de usuário:</label>
-                  <input type="text" class="form-control" placeholder="Coloque o e-mail de usuário"
-                   required ngModel name="remedyRegisterUserEmail" id="remedyRegisterUserEmail">
+                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 4 caracteres" label="Nome de usuário:">
+                    <input name="remedyRegisterUserName" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
+                  </gmr-input-container>
 
-                  <label for="remedyRegisterUserPhone">Telefone:</label>
-                  <input type="text" class="form-control" placeholder="Coloque o nome de usuário" ngModel name="remedyRegisterUserPhone" id="remedyRegisterUserPhone">
+                  <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
+                    <input name="remedyRegisterUserEmail" class="form-control" placeholder="Coloque o e-mail de usuário" ngModel required>
+                  </gmr-input-container>
+
+                  <gmr-input-container errorMessage="Campo obrigatório" label="Telefone:">
+                    <input name="remedyRegisterUserPhone" class="form-control" placeholder="Coloque o telefone" ngModel>
+                  </gmr-input-container>
+
                 </form>
               </div>
           </div>
@@ -81,7 +61,7 @@
             <div class="box-header with-border box box-primary">
                 <div class="form-group">
                     <div class="col-md-6">
-                      <button type="sbmit" [disabled]="!formUser.valid && !formRemedy.valid"  class="btn btn-primary" name="remedyRegisterButtonSubmit">Confirmar</button>
+                      <button type="sbmit" [disabled]="!formUser.valid || !formRemedy.valid"  class="btn btn-primary" name="remedyRegisterButtonSubmit">Confirmar</button>
                     </div>
 
                     <div class="col-md-6">

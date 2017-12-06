@@ -19,6 +19,7 @@ import { MenuItemComponent } from './components/remedys/remedy-details/menu-item
 import { MenuComponent } from './components/remedys/remedy-details/menu/menu.component';
 import { CommentsComponent } from './components/remedys/remedy-details/comments/comments.component';
 import { RemedyRegisterComponent } from './components/remedy-register/remedy-register.component';
+import { InputComponent } from './shared/input/input.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RemedyRegisterComponent } from './components/remedy-register/remedy-reg
     MenuItemComponent,
     MenuComponent,
     CommentsComponent,
-    RemedyRegisterComponent
+    RemedyRegisterComponent,
+    InputComponent
 
   ],
   imports: [
