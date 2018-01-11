@@ -1,5 +1,5 @@
 import {Injectable}from'@angular/core'
-import{Http}from'@angular/http'
+import{Http, Headers, RequestOptions}from'@angular/http'
 import{Observable}from'rxjs/Observable'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
@@ -39,6 +39,12 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-
+  remedyRegisterService(inf:any): Observable<any>{
+    const headers = new Headers()
+    headers.append('Content-Type','application/json')
+    return  this.http.post(`${GMR_API}/usersRemedys`,
+      JSON.stringify(inf), new RequestOptions({headers:headers}))
+                          .map(response => response.json())
+  }
 
 }

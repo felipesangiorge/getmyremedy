@@ -2,71 +2,69 @@
   <h1>Cadastrar Remédio</h1>
 </section>
 
-<section class="content">
-  <div class="container">
-    <div class="col-md-6">
+<section class="content col-md-12 col-xs-12">
+  <div class="container col-xs-12">
+    <div class="col-md-12">
         <div class="box-header with-border box box-primary">
-          <h3 class="box-title">Dados do remédio</h3>
+          <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do Usuário</h3>
             <div class="form-group">
               <form #formRemedy="ngForm" novalidate>
 
-                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres" label="Name:">
-                    <input name="remedyRegisterRemedyName" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
+                <gmr-input-container errorMessage="Campo obrigatório com no minimo 4 caracteres" label="Nome de usuário:">
+                  <input name="userName" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
+                </gmr-input-container>
+
+                <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
+                  <input name="userEmail" class="form-control" placeholder="Coloque o e-mail de usuário" ngModel required>
+                </gmr-input-container>
+
+                <gmr-input-container errorMessage="O campo não pode conter letras" label="Telefone:">
+                  <input name="phone" class="form-control" pattern="^[0-9]*$" placeholder="Coloque o telefone" ngModel>
+                </gmr-input-container>
+
+                <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do remédio</h3>
+
+                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres" label="Nome do Remédio:">
+                    <input name="name" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Doságem:">
-                    <input name="remedyRegisterRemedyDosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
+                    <input name="dosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Data de válidade:">
-                    <input name="remedyRegisterRemedyValidateDate" class="form-control" placeholder="Data de válidade" ngModel required>
+                    <input name="validateDate" class="form-control" placeholder="Data de válidade" ngModel required>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Descrição:">
-                    <textarea name="remedyRegisterRemedyDescription" class="form-control" placeholder="Coloque a descrição" ngModel required></textarea>
+                    <textarea name="description" class="form-control" placeholder="Coloque a descrição" ngModel required></textarea>
                   </gmr-input-container>
 
-                <label for="remedyRegisterRemedyFile">Coloque alguma foto:</label>
-                <input type="file" class="form-control" name="remedyRegisterRemedyFile" ngModel id="remedyRegisterRemedyFile">
+
+                <div class="col-md-4 col-xs-6" type="sbmit">
+                  <button class="btn btn-primary col-md-12 button-custom" type="sbmit" (click)="checkInformations(formRemedy.value)" [disabled]=" !formRemedy.valid"  name="remedyRegisterButtonSubmit">Confirmar</button>
+                </div>
+
+                <div class="col-md-4 ">
+
+                </div>
+
+                <div class="col-md-4 col-xs-6" type="sbmit">
+                  <button class="btn btn-danger col-md-12 button-custom" type="sbmit" [routerLink]="['/']"  name="remedyRegisterButtonSubmit">Cencelar</button>
+                </div>
+
+
               </form>
             </div>
         </div>
       </div>
 
-      <div class="col-md-6">
 
-          <div class="box-header with-border box box-primary">
-            <h3 class="box-title">Dados de usuário</h3>
-              <div class="form-group">
-                <form #formUser="ngForm" novalidate>
 
-                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 4 caracteres" label="Nome de usuário:">
-                    <input name="remedyRegisterUserName" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
-                  </gmr-input-container>
-
-                  <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
-                    <input name="remedyRegisterUserEmail" class="form-control" placeholder="Coloque o e-mail de usuário" ngModel required>
-                  </gmr-input-container>
-
-                  <gmr-input-container errorMessage="Campo obrigatório" label="Telefone:">
-                    <input name="remedyRegisterUserPhone" class="form-control" placeholder="Coloque o telefone" ngModel>
-                  </gmr-input-container>
-
-                </form>
-              </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="box-header with-border box box-primary">
                 <div class="form-group">
-                    <div class="col-md-6">
-                      <button type="sbmit" [disabled]="!formUser.valid || !formRemedy.valid"  class="btn btn-primary" name="remedyRegisterButtonSubmit">Confirmar</button>
-                    </div>
 
-                    <div class="col-md-6">
-                      <button type="sbmit" class="btn btn-danger" name="remedyRegisterButtonSubmit">Cancelar</button>
-                    </div>
                 </div>
             </div>
           </div>
