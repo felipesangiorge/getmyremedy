@@ -17,10 +17,34 @@
 
   <footer class="main-footer">
     <div class="container">
-      <div class="pull-right hidden-xs">
+      <div class="pull-right hidden-xs col-xs-3 col-md-3">
         <b>Version</b> 1.0.0
       </div>
-      <strong>GetMyRemedy</strong>
+            <div class="col-xs-6 col-md-3">
+            <strong>GetMyRemedy</strong>
+
+            <p [routerLink]="['/']">Home</p>
+            <p [routerLink]="['/remedys']">Remédios</p>
+            <p [routerLink]="['/remedy-register']">Cadastrar Remédio</p>
+            <p [routerLink]="['/about']">Sobre</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+          <strong>Ajuda/Suporte</strong>
+
+          <p>felipe.sangiorge@gmail.com</p>
+          <p>Perguntas e Respostas</p>
+
+        </div>
+
+          <div class="col-xs-12 col-md-3">
+          <strong>Redes Sociais</strong>
+
+          <p>Google <i class="fa fa-google"></i></p>
+          <p>Facebook <i class="fa fa-facebook-official"></i></p>
+          <p>Twitter  <i class="fa fa-twitter"></i></p>
+          <p>Linkedin <i class="fa fa-linkedin"></i></p>
+        </div>
     </div>
   </footer>
 </div>

@@ -12,6 +12,14 @@ body {
   height: 50px;
 }
 
+.jumbotron-custom{
+  height: 280px;
+}
+
+.content-custom{
+  min-height: 120px;
+}
+
 /*
  * Component: Place Info Box
  * -------------------

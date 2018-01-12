@@ -1,8 +1,28 @@
 
+<div class="content content-custom">
 <section class="content-header">
-  <h1>Remédios</h1>
-</section>
+  <div class="col-xs-4 col-md-4">
+    <h2>Remédios em destaque</h2>
+  </div>
 
+  <div class="col-xs-4 col-md-4">
+  </div>
+
+  <div class="col-xs-4 col-md-4">
+    <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+          </div>
+        </form>
+    </div>
+
+</section>
+</div>
 <section class="content">
   <div class="row">
     <div *ngFor="let remedy of remedys" class="col-sm-6 col-xs-12">

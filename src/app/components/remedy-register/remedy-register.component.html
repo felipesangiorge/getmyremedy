@@ -33,7 +33,13 @@
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Data de válidade:">
-                    <input name="validateDate" class="form-control" placeholder="Data de válidade" ngModel required>
+                    <!--<input name="validateDate" class="form-control" placeholder="Data de válidade" ngModel required>!-->
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="date" name="validateDate" class="form-control pull-right" placeholder="Data de válidade" ngModel required id="datepicker">
+                    </div>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Descrição:">
@@ -50,7 +56,7 @@
                 </div>
 
                 <div class="col-md-4 col-xs-6" type="sbmit">
-                  <button class="btn btn-danger col-md-12 button-custom" type="sbmit" [routerLink]="['/']"  name="remedyRegisterButtonSubmit">Cencelar</button>
+                  <button class="btn btn-danger col-md-12 button-custom" type="sbmit" [routerLink]="'[/]'"  name="remedyRegisterButtonSubmit">Cencelar</button>
                 </div>
 
 

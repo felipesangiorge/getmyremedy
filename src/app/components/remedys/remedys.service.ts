@@ -45,6 +45,8 @@ export class RemedysService{
     return  this.http.post(`${GMR_API}/usersRemedys`,
       JSON.stringify(inf), new RequestOptions({headers:headers}))
                           .map(response => response.json())
+                            
+
   }
 
 }
