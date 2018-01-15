@@ -3,6 +3,7 @@ import{Http, Headers, RequestOptions}from'@angular/http'
 import{Observable}from'rxjs/Observable'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
+import 'rxjs/add/observable/throw'
 import{ErrorHandler}from'../../app.error-handler'
 import{Remedy}from'./remedy/remedy.model'
 import{MenuItem}from'./remedy-details/menu-item/menu-item.model'
@@ -16,7 +17,7 @@ export class RemedysService{
   constructor(private http:Http){}
 
   remedys():Observable<Remedy[]>{
-    return this.http.get(`${GMR_API}/remedys`)
+    return this.http.get(`${GMR_API}/api/remedys/remedysMenu`)
     .map(response => response.json())
     .catch(ErrorHandler.handleError)
   }
@@ -28,7 +29,7 @@ export class RemedysService{
   }
 
   remedyById(id:string):Observable<Remedy>{
-    return this.http.get(`${GMR_API}/remedys/${id}`)
+    return this.http.get(`${GMR_API}/api/remedys/${id}`)
     .map(response => response.json())
     .catch(ErrorHandler.handleError)
   }
@@ -45,7 +46,7 @@ export class RemedysService{
     return  this.http.post(`${GMR_API}/usersRemedys`,
       JSON.stringify(inf), new RequestOptions({headers:headers}))
                           .map(response => response.json())
-                            
+
 
   }
 

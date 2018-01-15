@@ -13,7 +13,9 @@ export class RemedysComponent implements OnInit {
   constructor(private remedysService :RemedysService) { }
 
   ngOnInit() {
-    this.remedysService.remedys().subscribe(remedys =>this.remedys = remedys)
+    this.remedysService.remedys().subscribe(remedys => this.remedys = remedys)
   }
+
+
 
 }

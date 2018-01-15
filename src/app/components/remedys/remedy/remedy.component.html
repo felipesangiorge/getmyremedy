@@ -1,14 +1,16 @@
-<a [routerLink]="['/remedys',remedy.id]">
+<a   [routerLink]="['/remedys',remedy.des_name]">
   <div class="place-info-box">
-    <span class="place-info-box-icon"><img [src]="remedy.imagePath" /></span>
+    <span class="place-info-box-icon"><img [src]="remedy.des_imagePath" /></span>
 
     <div class="place-info-box-content">
-      <span class="place-info-box-text">{{remedy.name}}</span>
-      <span class="place-info-box-text">{{remedy.dosage}} <i class="fa fa-thermometer"></i></span>
-      <span class="place-info-box-detail">Categoria: {{remedy.category}}</span>
+      <span class="place-info-box-text">{{remedy.des_name}}</span>
+      <span class="place-info-box-text">{{remedy.des_dosage}} <i class="fa fa-thermometer"></i></span>
+      <span class="place-info-box-detail">Categoria: {{remedy.des_category}}</span>
 
 
     </div>
-    <!-- /.info-box-content -->
+    <!-- /.info-box-content
+  [routerLink]="['/remedys',remedy.des_name]"
+<img [src]="remedy.imagePath" /> -->
   </div>
 </a>
