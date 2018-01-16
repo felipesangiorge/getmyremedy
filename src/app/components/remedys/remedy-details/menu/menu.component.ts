@@ -16,7 +16,8 @@ export class MenuComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.menu = this.remedysService.remedyByCategory(this.route.parent.snapshot.params['id'])
+    this.menu = this.remedysService.remedyBySameName(this.route.parent.snapshot.params['id'])
+    console.log(`menu ${this.menu}, parametro ${this.route.parent.snapshot.params['id']}`)
   }
 
 }

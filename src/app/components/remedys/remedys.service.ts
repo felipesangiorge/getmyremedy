@@ -22,14 +22,14 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  remedyByCategory(id:string):Observable<MenuItem[]>{
-    return this.http.get(`${GMR_API}/remedys/${id}/usersRemedys`)
+  remedyBySameName(id:string):Observable<MenuItem[]>{
+    return this.http.get(`${GMR_API}/api/remedys/${id}`)
     .map(response =>response.json())
     .catch(ErrorHandler.handleError)
   }
 
-  remedyById(id:string):Observable<Remedy>{
-    return this.http.get(`${GMR_API}/api/remedys/${id}`)
+  remedyByMenuId(id:string):Observable<Remedy>{
+    return this.http.get(`${GMR_API}/api/remedys/remedysMenu/${id}`)
     .map(response => response.json())
     .catch(ErrorHandler.handleError)
   }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import{Remedy}from'../remedy/remedy.model'
 import{RemedysService}from'../remedys.service'
 import{ActivatedRoute}from'@angular/router'
+import {Observable}from'rxjs/Observable'
 
 @Component({
   selector: 'gmr-remedy-details',
@@ -9,12 +10,15 @@ import{ActivatedRoute}from'@angular/router'
 })
 export class RemedyDetailsComponent implements OnInit {
 
-  remedy:Remedy
+ remedy:Remedy
 
   constructor(private remedysService : RemedysService , private route : ActivatedRoute) { }
 
   ngOnInit() {
-    this.remedysService.remedyById(this.route.snapshot.params['id']).subscribe(remedy => this.remedy = remedy)
+    //this.remedy = this.remedysService.remedyByMenuId(this.route.parent.snapshot.params['id'])
+    this.remedysService.remedyByMenuId(this.route.snapshot.params['id'])
+    .subscribe(remedy => this.remedy = remedy)
+    console.log(`Parametro : ${this.route.snapshot.params['id']}, Remédio ${this.remedy}`)
   }
 
 }
