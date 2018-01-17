@@ -24,6 +24,7 @@ import { CommentsComponent } from './components/remedys/remedy-details/comments/
 import { RemedyRegisterComponent } from './components/remedy-register/remedy-register.component';
 import { InputComponent } from './shared/input/input.component';
 import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dialog.component';
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dial
     CommentsComponent,
     RemedyRegisterComponent,
     InputComponent,
-    CustomDialogComponent
+    CustomDialogComponent,
+    LoginRegisterComponent
 
   ],
   imports: [

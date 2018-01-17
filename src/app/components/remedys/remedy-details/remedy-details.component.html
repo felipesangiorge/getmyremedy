@@ -19,16 +19,16 @@
                <!-- /.box-header -->
                <div class="box-body">
                  <div class="col-sm-3 col-xs-12" *ngIf="remedy">
-                   <!--<img class="box-img-detail" [src]="remedy.des_imagePath" />-->
+                   <img class="box-img-detail" [src]="remedy.des_imagePath" />
                  </div>
 
                  <dl class="col-sm-9 col-xs-12">
                    <dt>Categoria</dt>
-                   <dd *ngIf="remedy">{{remedy.des_category}}</dd>
+                   <dd>{{ remedy?.des_category | json }}</dd>
                    <dt>Dosagem</dt>
-                   <dd *ngIf="remedy">{{remedy.des_dosage}}</dd>
+                   <dd>{{remedytest.des_dosage | json}}</dd>
                    <dt>Descrição</dt>
-                   <dd *ngIf="remedy">{{remedy.des_description}}</dd>
+                   <dd>{{remedytest.des_description}}</dd>
                    <a href="#" [routerLink]="['/remedy-register']"><h4>Cadastrar novo remédio</h4></a>
 
                  </dl>

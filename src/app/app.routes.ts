@@ -6,10 +6,12 @@ import{RemedyDetailsComponent}from'./components/remedys/remedy-details/remedy-de
 import{MenuComponent}from'./components/remedys/remedy-details/menu/menu.component'
 import{CommentsComponent}from'./components/remedys/remedy-details/comments/comments.component'
 import{RemedyRegisterComponent}from'./components/remedy-register/remedy-register.component'
+import{LoginRegisterComponent}from'./components/login-register/login-register.component'
 
 export const ROUTES: Routes=[
     {path:'',component:HomeComponent},
     {path:'about',component:AboutComponent},
+    {path:'login',component:LoginRegisterComponent},
     {path:'remedys',component:RemedysComponent},
     {path:'remedys/:id',component:RemedyDetailsComponent,children:[
       {path:'',redirectTo:'menu',pathMatch:'full'},
