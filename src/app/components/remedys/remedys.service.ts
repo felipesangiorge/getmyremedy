@@ -16,6 +16,9 @@ export class RemedysService{
 
   constructor(private http:Http){}
 
+
+  //Remedy Services:
+
   remedys():Observable<Remedy[]>{
     return this.http.get(`${GMR_API}/api/remedys/remedysMenu`)
     .map(response => response.json())
@@ -46,8 +49,7 @@ export class RemedysService{
     return  this.http.post(`${GMR_API}/usersRemedys`,
       JSON.stringify(inf), new RequestOptions({headers:headers}))
                           .map(response => response.json())
-
-
   }
+
 
 }

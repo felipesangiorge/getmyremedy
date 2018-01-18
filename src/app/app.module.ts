@@ -5,6 +5,8 @@ import {RouterModule}from'@angular/router';
 import{ROUTES}from'./app.routes';
 
 import{RemedysService}from'./components/remedys/remedys.service'
+import {LoginRegisterService}from'./components/login-register/login-register.service'
+
 import {HttpModule}from'@angular/http';
 import{FormsModule}from'@angular/forms';
 
@@ -25,6 +27,8 @@ import { RemedyRegisterComponent } from './components/remedy-register/remedy-reg
 import { InputComponent } from './shared/input/input.component';
 import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dialog.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { LoginComponent } from './components/login-register/login/login.component';
+
 
 
 @NgModule({
@@ -42,7 +46,9 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     RemedyRegisterComponent,
     InputComponent,
     CustomDialogComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    LoginComponent,
+
 
   ],
   imports: [
@@ -53,7 +59,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RemedysService],
+  providers: [RemedysService,LoginRegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

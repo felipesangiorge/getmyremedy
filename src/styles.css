@@ -20,6 +20,13 @@ body {
   min-height: 120px;
 }
 
+.login-box-body{
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /*
  * Component: Place Info Box
  * -------------------

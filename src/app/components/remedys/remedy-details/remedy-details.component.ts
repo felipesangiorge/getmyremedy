@@ -21,7 +21,7 @@ export class RemedyDetailsComponent implements OnInit {
   "des_imagePath":"assets/img/remedys/remedy.jpg"}
 
   constructor(private remedysService : RemedysService , private route : ActivatedRoute) {
-      this.JSON = JSON;
+    
  }
 
   ngOnInit() {
