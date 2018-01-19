@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginRegisterService}from'../login-register.service'
 import{ToastsManager}from'ng2-toastr/ng2-toastr';
 import { ViewContainerRef } from '@angular/core';
+import {User}from'../user.model'
 
 @Component({
   selector: 'gmr-login',
@@ -23,6 +24,23 @@ export class LoginComponent implements OnInit {
                 des_password:inf.des_password}
 
    this.loginRegisterService.loginService(response)
+   .subscribe(response => {
+
+      localStorage.setItem("userSessionMailStorage",response.user_mail)
+      localStorage.setItem("userSessionTokenStorage",response.accessToken)
+
+   console.log(localStorage)
+   })
+
+
+  }
+
+  /*checkLoginInformations(inf:any){
+    var response
+    response =  {des_mail:inf.des_mail,
+                des_password:inf.des_password}
+
+   this.loginRegisterService.loginService(response)
    .subscribe((res:string)=>{
 
 
@@ -36,7 +54,7 @@ export class LoginComponent implements OnInit {
 
    })
 
-  }
+ }*/
 
 
 
