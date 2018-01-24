@@ -4,6 +4,7 @@ import{ToastsManager}from'ng2-toastr/ng2-toastr';
 import { ViewContainerRef } from '@angular/core';
 import {User}from'../user.model'
 
+
 @Component({
   selector: 'gmr-login',
   templateUrl: './login.component.html'
@@ -29,11 +30,8 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("userSessionMailStorage",response.user_mail)
       localStorage.setItem("userSessionTokenStorage",response.accessToken)
 
-   console.log(localStorage)
-   })
-
-
-  }
+      this.toastr.success(`Bem vindo ${response.user_mail} autenticado com sucesso!`)
+    }, response => this.toastr.error(`Usuário ou senha inválidos`))}
 
   /*checkLoginInformations(inf:any){
     var response

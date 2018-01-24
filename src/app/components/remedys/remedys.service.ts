@@ -46,9 +46,11 @@ export class RemedysService{
   remedyRegisterService(inf:any): Observable<any>{
     const headers = new Headers()
     headers.append('Content-Type','application/json')
-    return  this.http.post(`${GMR_API}/usersRemedys`,
+    headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+    return  this.http.post(`${GMR_API}/api/remedys/registerNewRemedy`,
       JSON.stringify(inf), new RequestOptions({headers:headers}))
                           .map(response => response.json())
+                  
   }
 
 

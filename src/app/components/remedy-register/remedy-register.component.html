@@ -6,30 +6,21 @@
   <div class="container col-xs-12">
     <div class="col-md-12">
         <div class="box-header with-border box box-primary">
-          <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do Usuário</h3>
             <div class="form-group">
               <form #formRemedy="ngForm" novalidate>
-
-                <gmr-input-container errorMessage="Campo obrigatório com no minimo 4 caracteres" label="Nome de usuário:">
-                  <input name="userName" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
-                </gmr-input-container>
-
-                <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
-                  <input name="userEmail" class="form-control" placeholder="Coloque o e-mail de usuário" ngModel required>
-                </gmr-input-container>
-
-                <gmr-input-container errorMessage="O campo não pode conter letras" label="Telefone:">
-                  <input name="phone" class="form-control" pattern="^[0-9]*$" placeholder="Coloque o telefone" ngModel>
-                </gmr-input-container>
 
                 <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do remédio</h3>
 
                   <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres" label="Nome do Remédio:">
-                    <input name="name" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
+                    <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
+                  </gmr-input-container>
+
+                  <gmr-input-container errorMessage="Campo obrigatório" label="Categoria:">
+                    <input name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Doságem:">
-                    <input name="dosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
+                    <input name="des_dosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Data de válidade:">
@@ -38,12 +29,12 @@
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="date" name="validateDate" class="form-control pull-right" placeholder="Data de válidade" ngModel required id="datepicker">
+                        <input type="date" name="des_validate" class="form-control pull-right" placeholder="Data de válidade" ngModel required id="datepicker">
                     </div>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Descrição:">
-                    <textarea name="description" class="form-control" placeholder="Coloque a descrição" ngModel required></textarea>
+                    <textarea name="des_description" class="form-control" placeholder="Coloque a descrição" ngModel required></textarea>
                   </gmr-input-container>
 
 

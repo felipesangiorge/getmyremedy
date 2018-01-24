@@ -25,22 +25,25 @@ export class RemedyRegisterComponent implements OnInit {
 
   checkInformations(inf:any ):void{
      var response
-     response =  {userName:inf.userName,
-                  userEmail:inf.userEmail,
-                  phone:inf.phone,
-                  name:inf.name,
-                  dosage:inf.dosage,
-                  description:inf.description,
-                  validateDate:inf.validateDate,
-                  imagePath:`assets/img/remedys/${inf.name.toLowerCase()}.jpg`,
-                  remedyId:inf.name}
+     response =  {des_name:inf.des_name,
+                  des_category:inf.des_category,
+                  des_dosage:inf.des_dosage,
+                  des_validate:inf.des_validate,
+                  des_description:inf.des_description,
+                  des_imagePath:`assets/img/remedys/${inf.des_name.toLowerCase()}.jpg`,
+                  idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
+
+                  console.log(localStorage.getItem("userSessionMailStorage"))
+                  console.log(localStorage.getItem("userSessionTokenStorage"))
 
     this.remedysService.remedyRegisterService(response)
-    .subscribe((remedyId: string)=>{
+    .subscribe((response: string)=>{
 
-      this.showSuccess(response.name)
+      this.showSuccess(response)
 
     })
+
+    console.log(response)
 
   }
 
