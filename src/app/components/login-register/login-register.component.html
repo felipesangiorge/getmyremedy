@@ -8,7 +8,7 @@
               <form #formRemedy="ngForm" novalidate>
 
                 <gmr-input-container errorMessage="Campo obrigatório com no minimo 4 caracteres" label="Nome de usuário:">
-                  <input name="des_name" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
+                  <input name="nom_name" class="form-control" placeholder="Coloque o nome do usuário" ngModel required minlength="4">
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
@@ -24,7 +24,7 @@
                 </gmr-input-container>
 
                 <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório minimo 2 caracteres" label="Estado:">
-                  <input name="des_state" class="form-control" placeholder="Coloque o Estado" ngModel required maxlength="2">
+                  <input name="des_state" class="form-control" placeholder="Coloque o Estado" ngModel required minlength="2">
                 </gmr-input-container>
 
                 <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório" label="Cep:">
@@ -36,7 +36,7 @@
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório minimo 6 caracteres" label="Senha:">
-                  <input name="des_password" class="form-control" placeholder="Coloque a senha" ngModel required minlength="6">
+                  <input name="des_password" class="form-control" placeholder="Coloque a senha" type="password" ngModel required minlength="6">
                 </gmr-input-container>
 
 

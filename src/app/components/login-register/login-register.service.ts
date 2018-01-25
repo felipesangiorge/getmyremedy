@@ -22,7 +22,11 @@ export class LoginRegisterService{
 constructor(private http:Http){}
 
 isLogged(): boolean {
-  return this.user !==undefined
+  if(localStorage.getItem("userSessionMailStorage") != null || localStorage.getItem("userSessionTokenStorage") != null){
+    return true
+  }else{
+    return false
+  }
 }
 
 /*loginService(email:string, password:string): Observable<User>{
@@ -40,6 +44,14 @@ loginService(inf:any): Observable<any>{
     JSON.stringify(inf), new RequestOptions({headers:headers}))
                         .map(response =>  response.json())
 
+}
+
+registerNewUser(inf:any): Observable<any>{
+  const headers = new Headers()
+  headers.append('Content-Type','application/json')
+  return this.http.post(`${GMR_API}/api/register`,
+          JSON.stringify(inf), new RequestOptions({headers:headers}))
+          .map(response => response.json())
 }
 
 }

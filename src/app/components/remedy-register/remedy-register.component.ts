@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RemedysService}from'../remedys/remedys.service'
 import{ToastsManager}from'ng2-toastr/ng2-toastr';
 import { ViewContainerRef } from '@angular/core';
+import{LoginRegisterService}from'../login-register/login-register.service'
 
 @Component({
   selector: 'gmr-remedy-register',
@@ -9,7 +10,7 @@ import { ViewContainerRef } from '@angular/core';
 })
 export class RemedyRegisterComponent implements OnInit {
 
-  constructor(private remedysService : RemedysService , public toastr: ToastsManager, vcr: ViewContainerRef) {
+  constructor(private remedysService : RemedysService ,private loginRegisterService:LoginRegisterService, public toastr: ToastsManager, vcr: ViewContainerRef) {
   this.toastr.setRootViewContainerRef(vcr);
 }
 
@@ -17,10 +18,10 @@ export class RemedyRegisterComponent implements OnInit {
   }
 
   showSuccess(response) {
-        this.toastr.success(`O remédio ${response} criado com sucesso!`, 'Sucesso!',"ok");
+        this.toastr.success(`O remédio cadastrado com sucesso!`, 'Sucesso!',"ok");
     }
   showError(error){
-      this.toastr.error(`Error: ${error} O remédio não pode ser cadastrado, tente novamente mais tarde!`)
+      this.toastr.error(`Error: ${error}`)
   }
 
   checkInformations(inf:any ):void{
@@ -34,16 +35,24 @@ export class RemedyRegisterComponent implements OnInit {
                   idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
 
                   console.log(localStorage.getItem("userSessionMailStorage"))
-                  console.log(localStorage.getItem("userSessionTokenStorage"))
+                  console.log(this.loginRegisterService.isLogged())
 
     this.remedysService.remedyRegisterService(response)
     .subscribe((response: string)=>{
 
       this.showSuccess(response)
 
+    }, response => {
+      if(this.loginRegisterService.isLogged()){
+
+      this.showError(`Error: ${response}`)
+
+      }else{
+      this.showError("Você precisa se autenticar, caso já esteja autenticado tente novamente em alguns minutos.")
+        }
     })
 
-    console.log(response)
+
 
   }
 
