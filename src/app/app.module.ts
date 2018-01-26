@@ -28,6 +28,8 @@ import { InputComponent } from './shared/input/input.component';
 import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dialog.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { LoginComponent } from './components/login-register/login/login.component';
+import {LoggedInGuard}from'./components/login-register/loggedin.guard'
+
 
 
 
@@ -59,7 +61,11 @@ import { LoginComponent } from './components/login-register/login/login.componen
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [RemedysService,LoginRegisterService],
+  providers: [LoggedInGuard,
+              RemedysService,
+              LoginRegisterService,
+
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

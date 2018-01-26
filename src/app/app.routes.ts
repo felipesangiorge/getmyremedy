@@ -8,6 +8,8 @@ import{CommentsComponent}from'./components/remedys/remedy-details/comments/comme
 import{RemedyRegisterComponent}from'./components/remedy-register/remedy-register.component'
 import{LoginComponent}from'./components/login-register/login/login.component'
 import{LoginRegisterComponent}from'./components/login-register/login-register.component'
+import{LoggedInGuard}from'./components/login-register/loggedin.guard'
+
 
 export const ROUTES: Routes=[
     {path:'',component:HomeComponent},
@@ -20,6 +22,6 @@ export const ROUTES: Routes=[
       {path:'menu',component:MenuComponent},
       {path:'comments',component:CommentsComponent}
     ]},
-    {path:'remedy-register',component:RemedyRegisterComponent}
+    {path:'remedy-register',component: RemedyRegisterComponent,canActivate:[LoggedInGuard]}
 
 ]

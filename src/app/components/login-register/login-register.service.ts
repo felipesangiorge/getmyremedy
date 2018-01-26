@@ -8,6 +8,9 @@ import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/do'
 import{ErrorHandler}from'../../app.error-handler'
 import{User}from'./user.model'
+import{Router}from'@angular/router'
+import{ToastsManager}from'ng2-toastr/ng2-toastr';
+
 
 
 import{GMR_API}from'../../app.api'
@@ -19,7 +22,9 @@ export class LoginRegisterService{
   user:User
 
 
-constructor(private http:Http){}
+constructor(private http:Http, private router:Router){
+
+}
 
 isLogged(): boolean {
   if(localStorage.getItem("userSessionMailStorage") != null || localStorage.getItem("userSessionTokenStorage") != null){
@@ -28,6 +33,11 @@ isLogged(): boolean {
     return false
   }
 }
+handleLogin(){
+
+  this.router.navigate(['/login'])
+}
+
 
 /*loginService(email:string, password:string): Observable<User>{
   const headers = new Headers()
