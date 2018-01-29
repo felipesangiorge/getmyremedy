@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginRegisterService}from'../login-register/login-register.service'
+import{ToastsManager}from'ng2-toastr/ng2-toastr';
+import { ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'gmr-header',
@@ -6,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginRegisterService:LoginRegisterService,  public toastr: ToastsManager, vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr)
+  }
+
+  data:any = {
+    mail : localStorage.getItem('userSessionMailStorage')
+  }
 
   ngOnInit() {
+    this.loggedIn()
+  }
+
+  loggedIn():boolean{
+    return this.loginRegisterService.isLogged()
+  }
+
+  logout(){
+    localStorage.removeItem('userSessionMailStorage')
+    localStorage.removeItem('userSessionTokenStorage')
+
+      this.toastr.info("Deslogado com sucesso!")
   }
 
 }

@@ -3,7 +3,7 @@
 
   <div class="menu-item-info-box-content">
     <span class="menu-item-info-box-text">{{menuItem.des_name}}</span>
-    <span class="menu-item-info-box-detail">Validade : {{menuItem.des_validate}}</span>
+    <span class="menu-item-info-box-detail">Validade : {{menuItem.des_validate | date: 'dd/MM/yyyy'}}</span>
     <span class="menu-item-info-box-detail">Usuário : {{menuItem.nom_name}}</span>
     <span class="menu-item-info-box-detail">Cidade : {{menuItem.des_city}}</span>
     <span class="menu-item-info-box-detail">Contato : {{menuItem.des_mail}}</span>

@@ -9,7 +9,8 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+    <div class="pull-left">
       <ul class="nav navbar-nav">
           <li  routerLinkActive="active" [routerLink]="['/remedys']"><a>Remédios</a></li>
           <li routerLinkActive="active" [routerLink]="['/remedy-register']"><a>Cadastrar Remédio</a></li>
@@ -19,11 +20,14 @@
       </ul>
     </div>
 
-    <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
+    <div class="pull-right">
       <ul class="nav navbar-nav">
-          <li class="pull-right" [routerLink]="['/login']"><a>Login / Register</a></li>
+          <li *ngIf="!loggedIn()" class="pull-right" [routerLink]="['/login']"><a>Login / Register</a></li>
+          <li *ngIf="loggedIn()" class="pull-left"><a> Bem vindo | {{data.mail}}</a></li>
+          <li *ngIf="loggedIn()" class="pull-right" (click)="logout()" class="pull-right"><a> Sair </a></li>
       </ul>
     </div>
+  </div>
     <!-- /.navbar-collapse -->
 
   </div>

@@ -17,4 +17,21 @@ export class CommentsComponent implements OnInit {
     this.comments = this.remedysService.commentsOfRemedy(this.route.parent.snapshot.params['id'])
   }
 
+
+  checkInformations(inf:any ):void{
+     var response
+     response =  {des_comment:inf.des_comment}
+
+
+    this.remedysService.remedyRegisterService(response)
+    .subscribe((response: string)=>{
+
+
+
+    })
+
+
+
+  }
+
 }

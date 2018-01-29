@@ -24,6 +24,10 @@ export class RemedyRegisterComponent implements OnInit {
       this.toastr.error(`Error: ${error}`)
   }
 
+  loggedIn():boolean{
+    return this.loginRegisterService.isLogged()
+  }
+
   checkInformations(inf:any ):void{
      var response
      response =  {des_name:inf.des_name,
@@ -33,9 +37,7 @@ export class RemedyRegisterComponent implements OnInit {
                   des_description:inf.des_description,
                   des_imagePath:`assets/img/remedys/${inf.des_name.toLowerCase()}.jpg`,
                   idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
-
-                  console.log(localStorage.getItem("userSessionMailStorage"))
-                  console.log(this.loginRegisterService.isLogged())
+      
 
     this.remedysService.remedyRegisterService(response)
     .subscribe((response: string)=>{
