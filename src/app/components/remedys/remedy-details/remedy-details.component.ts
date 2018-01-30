@@ -11,11 +11,25 @@ import {Observable}from'rxjs/Observable'
 export class RemedyDetailsComponent implements OnInit {
 
 remedy:any
+private remedyName
+private remedyDosage
 
   constructor(private remedysService : RemedysService , private route : ActivatedRoute) {
 
  }
 
+ setRemedyName(des_name){
+   this.remedyName =  des_name
+ }
+ setRemedyDosage(des_dosage){
+   this.remedyDosage = des_dosage
+ }
+ getRemedyName(){
+   return this.remedyName
+ }
+ getRemedyDosage(){
+    return this.remedyDosage
+ }
 
   ngOnInit() {
 
@@ -28,11 +42,11 @@ remedy:any
                           des_description:response[0].des_description,
                           des_imagePath:response[0].des_imagePath
                           }
+                  this.setRemedyName(this.remedy.des_name)
+                  this.setRemedyDosage(this.remedy.des_dosage)
 
     })
 
-    console.log(`Parametro : ${this.route.snapshot.params['id']}, Remédio`)
-
-      }
+    }
 
   }

@@ -37,10 +37,14 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  commentsOfRemedy(id:string):Observable<any>{
-    return this.http.get(`${GMR_API}/remedys/${id}/comments`)
-    .map(response => response.json())
-    .catch(ErrorHandler.handleError)
+  commentsOfRemedy(inf):Observable<any>{
+    const headers = new Headers
+    headers.append('Content-Type','application/json')
+    headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+    return this.http.post(`${GMR_API}/api/remedys/comments`,
+      JSON.stringify(inf), new RequestOptions({headers:headers}))
+                          .map(response => response.json())
+
   }
 
   remedyRegisterService(inf:any): Observable<any>{
@@ -50,7 +54,7 @@ export class RemedysService{
     return  this.http.post(`${GMR_API}/api/remedys/registerNewRemedy`,
       JSON.stringify(inf), new RequestOptions({headers:headers}))
                           .map(response => response.json())
-                  
+
   }
 
 
