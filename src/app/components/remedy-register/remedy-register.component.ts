@@ -3,6 +3,7 @@ import {RemedysService}from'../remedys/remedys.service'
 import{ToastsManager}from'ng2-toastr/ng2-toastr';
 import { ViewContainerRef } from '@angular/core';
 import{LoginRegisterService}from'../login-register/login-register.service'
+import{Router}from '@angular/router'
 
 @Component({
   selector: 'gmr-remedy-register',
@@ -10,7 +11,10 @@ import{LoginRegisterService}from'../login-register/login-register.service'
 })
 export class RemedyRegisterComponent implements OnInit {
 
-  constructor(private remedysService : RemedysService ,private loginRegisterService:LoginRegisterService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+  constructor(private remedysService : RemedysService ,
+    private loginRegisterService:LoginRegisterService,
+    public toastr: ToastsManager, vcr: ViewContainerRef,
+    public router: Router) {
   this.toastr.setRootViewContainerRef(vcr);
 }
 
@@ -28,6 +32,10 @@ export class RemedyRegisterComponent implements OnInit {
     return this.loginRegisterService.isLogged()
   }
 
+  returnHome(){
+    this.router.navigate(['/'])
+  }
+
   checkInformations(inf:any ):void{
      var response
      response =  {des_name:inf.des_name,
@@ -37,7 +45,7 @@ export class RemedyRegisterComponent implements OnInit {
                   des_description:inf.des_description,
                   des_imagePath:`assets/img/remedys/${inf.des_name.toLowerCase()}.jpg`,
                   idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
-      
+
 
     this.remedysService.remedyRegisterService(response)
     .subscribe((response: string)=>{

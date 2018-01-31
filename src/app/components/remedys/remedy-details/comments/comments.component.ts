@@ -3,6 +3,8 @@ import {RemedysService}from'../../remedys.service'
 import {Observable}from'rxjs/Observable'
 import {ActivatedRoute}from'@angular/router'
 import{RemedyDetailsComponent}from'../remedy-details.component'
+import{ToastsManager}from'ng2-toastr/ng2-toastr';
+import { ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'gmr-comments',
@@ -15,10 +17,13 @@ export class CommentsComponent implements OnInit {
 
   constructor(private remedysService : RemedysService,
               private route: ActivatedRoute,
-              private remedy:RemedyDetailsComponent) { }
+              private remedy:RemedyDetailsComponent,
+              public toastr: ToastsManager, vcr: ViewContainerRef) {
+                this.toastr.setRootViewContainerRef(vcr)
+              }
 
   ngOnInit() {
-    //this.comments = this.remedysService.commentsOfRemedy(this.route.parent.snapshot.params['id'])
+    this.comments = this.remedysService.getCommentsOfRemedy(this.route.parent.snapshot.params['id'])
   }
 
 
@@ -31,13 +36,12 @@ export class CommentsComponent implements OnInit {
                   des_remedy_dosage:this.remedy.getRemedyDosage(),
                   user_mail:localStorage.getItem("userSessionMailStorage")}
 
-                  console.log(response)
-
-    this.remedysService.commentsOfRemedy(response)
+    this.remedysService.setCommentsOfRemedy(response)
     .subscribe((response: string)=>{
 
+        this.toastr.success("Comentário publicado com sucesso.")
 
-    })
+    }, response => this.toastr.error("Você precisa estar autenticado para publicar um comentário."))
 
 
 

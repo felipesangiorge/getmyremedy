@@ -37,7 +37,13 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  commentsOfRemedy(inf):Observable<any>{
+  getCommentsOfRemedy(id:string):Observable<any>{
+    return this.http.get(`${GMR_API}/api/remedys/${id}/comments`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
+  setCommentsOfRemedy(inf):Observable<any>{
     const headers = new Headers
     headers.append('Content-Type','application/json')
     headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
