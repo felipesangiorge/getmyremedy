@@ -11,16 +11,16 @@
 
                 <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do remédio</h3>
 
-                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres" label="Nome do Remédio:">
-                    <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" ngModel required minlength="3">
+                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres e não pode conter espaços" label="Nome do Remédio:">
+                    <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" pattern="^[a-zA-Z_\-]+$" ngModel required minlength="3">
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Categoria:">
                     <input name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
                   </gmr-input-container>
 
-                  <gmr-input-container errorMessage="Campo obrigatório" label="Doságem:">
-                    <input name="des_dosage" class="form-control" placeholder="Coloque a doságem" ngModel required>
+                  <gmr-input-container errorMessage="Campo obrigatório não pode conter espaços" label="Doságem:">
+                    <input name="des_dosage" class="form-control" placeholder="Coloque a doságem exemplo: 10ml" pattern="^[a-zA-Z0-9_\-]+$" ngModel required>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Data de válidade:">

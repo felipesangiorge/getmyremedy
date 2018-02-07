@@ -7,12 +7,3 @@ export interface Remedy{
   des_description:string
   des_imagePath:string
 }
-
-/*export interface Remedy{
-  id:string
-  name:string
-  category:string
-  dosage:string
-  validateDate:string
-  imagePath:string
-}*/

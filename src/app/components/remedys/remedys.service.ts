@@ -25,7 +25,7 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  remedyBySameName(id:string):Observable<MenuItem[]>{
+  remedyBySameName(id:any):Observable<MenuItem[]>{
     return this.http.get(`${GMR_API}/api/remedys/${id}`)
     .map(response =>response.json())
     .catch(ErrorHandler.handleError)
