@@ -19,8 +19,7 @@ export class MenuComponent implements OnInit {
               private remedy: RemedyDetailsComponent) { }
 
   ngOnInit() {
-    this.menu = this.remedysService.remedyBySameName(this.route.parent.snapshot.params['id')
-
+    this.menu = this.remedysService.remedyBySameName(this.route.parent.snapshot.params['id'])
   }
 
 }
