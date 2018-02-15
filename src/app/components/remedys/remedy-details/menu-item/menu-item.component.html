@@ -8,6 +8,6 @@
     <span class="menu-item-info-box-detail">Cidade : {{menuItem.des_city}}</span>
     <span class="menu-item-info-box-detail">Contato : {{menuItem.des_mail}}</span>
     <span class="menu-item-info-box-phone">Telefone : {{menuItem.num_phone}}</span>
-    <!--   <a href="mailto:{{menuItem.userEmail}}&subject=GetMyRemedy" class="pull-right"><i class="fa fa-plus-circle"></i>Solicitar</a>-->
+    <a *ngIf="router.url === '/user'" (click)="checkInformations(menuItem.idtb_remedys)" class="pull-right"><i class="fa fa-plus-circle"></i>Excluir</a>
   </div>
 </div>

@@ -23,7 +23,7 @@
     <div class="pull-right">
       <ul class="nav navbar-nav">
           <li *ngIf="!loggedIn()" class="pull-right" [routerLink]="['/login']"><a>Login / Register</a></li>
-          <li *ngIf="loggedIn()" class="pull-left"><a> Bem vindo | <i class="fa fa-user"></i>  {{data.mail}}</a></li>
+          <li *ngIf="loggedIn()" class="pull-left" [routerLink]="['/user']"><a> Bem vindo | <i class="fa fa-user"></i>  {{data.mail}}</a></li>
           <li *ngIf="loggedIn()" class="pull-right" (click)="logout()" class="pull-right"><a> Sair </a></li>
       </ul>
     </div>

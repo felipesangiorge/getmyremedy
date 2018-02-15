@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import{MenuItem}from'./menu-item.model'
+import {Router}from'@angular/router'
 
 @Component({
   selector: 'gmr-menu-item',
@@ -10,7 +11,7 @@ export class MenuItemComponent implements OnInit {
   @Input() menuItem:MenuItem
   @Output() add = new EventEmitter()
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -18,5 +19,9 @@ export class MenuItemComponent implements OnInit {
   emitAddEvent(){
     this.add.emit(this.menuItem)
     console.log(this.menuItem)
+  }
+
+  checkInformations(inf:any){
+    console.log(inf)
   }
 }

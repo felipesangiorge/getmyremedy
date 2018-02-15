@@ -64,4 +64,13 @@ registerNewUser(inf:any): Observable<any>{
           .map(response => response.json())
 }
 
+editUser(inf:any): Observable<any>{
+  const headers = new Headers()
+  headers.append('Content-Type','application/json')
+  headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+  return this.http.post(`${GMR_API}/api/users/edit`,
+          JSON.stringify(inf), new RequestOptions({headers:headers}))
+          .map(response => response.json())
+}
+
 }

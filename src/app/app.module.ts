@@ -28,7 +28,8 @@ import { InputComponent } from './shared/input/input.component';
 import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dialog.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { LoginComponent } from './components/login-register/login/login.component';
-import {LoggedInGuard}from'./components/login-register/loggedin.guard'
+import {LoggedInGuard}from'./components/login-register/loggedin.guard';
+import { UsersComponent } from './components/users/users.component'
 
 
 
@@ -50,6 +51,7 @@ import {LoggedInGuard}from'./components/login-register/loggedin.guard'
     CustomDialogComponent,
     LoginRegisterComponent,
     LoginComponent,
+    UsersComponent,
 
 
   ],
