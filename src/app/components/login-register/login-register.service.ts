@@ -73,4 +73,10 @@ editUser(inf:any): Observable<any>{
           .map(response => response.json())
 }
 
+getUser(id:any):Observable<any>{
+  return this.http.get(`${GMR_API}/api/users/${id}`)
+  .map(response =>response.json())
+  .catch(ErrorHandler.handleError)
+}
+
 }

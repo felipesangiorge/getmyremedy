@@ -36,6 +36,15 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
+  deleteUserRemedy(obj:any):Observable<MenuItem[]>{
+    const headers = new Headers
+    headers.append('Content-Type','application/json')
+    headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+    return this.http.delete(`${GMR_API}/api/users/remedys/${obj.idtb_remedys}`,new RequestOptions({headers:headers}))
+    .map(response =>response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
   remedyByMenuId(id:string):Observable<Remedy>{
     return this.http.get(`${GMR_API}/api/remedys/remedysMenu/${id}`)
     .map(response => response.json())

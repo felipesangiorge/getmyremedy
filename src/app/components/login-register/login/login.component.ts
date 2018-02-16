@@ -22,13 +22,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  localStorageSet(mailStorage,tokenStorage){
+  localStorageSet(mailStorage,tokenStorage,nameStorage){
     localStorage.setItem("userSessionMailStorage",mailStorage)
     localStorage.setItem("userSessionTokenStorage",tokenStorage)
+    localStorage.setItem("userSessionNameStorage",nameStorage)
   }
   localStorageRemove(){
     localStorage.removeItem("userSessionMailStorage")
     localStorage.removeItem("userSessionTokenStorage")
+    localStorage.removeItem("userSessionNameStorage")
   }
 
   checkLoginInformations(inf:any){
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit {
    .subscribe(response => {
 
       this.localStorageRemove()
-      this.localStorageSet(response.user_mail,response.accessToken)
+      this.localStorageSet(response.user_mail,response.accessToken,response.nom_name)
 
       this.toastr.success(`Bem vindo ${response.user_mail} autenticado com sucesso!`)
 

@@ -5,14 +5,14 @@
         <div class="box-header with-border box box-primary">
           <h3 class="box-title callout callout-info col-md-12 col-xs-12">Editar Usuário</h3>
             <div class="form-group">
-              <form #formRemedy="ngForm" novalidate>
+              <form #formUser="ngForm" novalidate>
 
                 <gmr-input-container label="Nome de usuário:">
-                  <input name="nom_name" class="form-control" placeholder="Coloque o nome do usuário" readonly="true" ngModel>
+                  <input name="nom_name" class="form-control" placeholder="{{user.nom_name}}" readonly="true" ngModel>
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório" label="E-mail de usuário:">
-                  <input name="des_mail" class="form-control" placeholder="Coloque o e-mail de usuário" readonly="true" ngModel>
+                  <input name="des_mail" class="form-control" placeholder="{{user.user_mail}}" readonly="true" ngModel>
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório" label="Endereço:">
@@ -52,7 +52,7 @@
                 <div class="form-group">
 
                   <div class="col-md-4 col-xs-6" type="sbmit">
-                    <button class="btn btn-primary col-md-12 button-custom" type="sbmit" (click)="checkInformations(formRemedy.value)" [disabled]=" !formRemedy.valid"  name="remedyRegisterButtonSubmit">Editar</button>
+                    <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value)" [disabled]=" !formUser.valid"  name="remedyRegisterButtonSubmit">Editar</button>
                   </div>
 
                   <div class="col-md-4 ">
@@ -60,14 +60,14 @@
                   </div>
 
                   <div class="col-md-4 col-xs-6" type="sbmit">
-                    <button class="btn btn-danger col-md-12 button-custom" type="sbmit" [routerLink]="'[/]'"  name="remedyRegisterButtonSubmit">Cencelar</button>
+                    <button class="btn btn-danger col-md-12 button-custom" type="submit" [routerLink]="'[/]'" (click)="returnHome()"  name="remedyRegisterButtonSubmit">Cancelar</button>
                   </div>
                 </div>
             </div>
           </div>
 
           <div class="col-md-12">
-              <div class="box-header with-border box box-primary">
+              <div class="">
                 <h3 class="box-title callout callout-info col-md-12 col-xs-12">Meus Anuncios</h3>
                 <div class="col-sm-6 col-xs-12" *ngFor="let item of menu | async">
 

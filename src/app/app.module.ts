@@ -66,6 +66,7 @@ import { UsersComponent } from './components/users/users.component'
   providers: [LoggedInGuard,
               RemedysService,
               LoginRegisterService,
+              CustomDialogComponent
 
               ],
   bootstrap: [AppComponent]

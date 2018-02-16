@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'gmr-custom-dialog',
   templateUrl: './custom-dialog.component.html',
@@ -10,6 +11,10 @@ export class CustomDialogComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  open(){
+
   }
 
 }

@@ -5,6 +5,7 @@ import { ViewContainerRef } from '@angular/core';
 import {Observable}from'rxjs/Observable'
 import {MenuItem}from'../remedys/remedy-details/menu-item/menu-item.model'
 import {RemedysService}from'../remedys/remedys.service'
+import{Router}from '@angular/router'
 
 @Component({
   selector: 'gmr-users',
@@ -13,21 +14,31 @@ import {RemedysService}from'../remedys/remedys.service'
 export class UsersComponent implements OnInit {
 
     menu: Observable<MenuItem[]>
+    user = {user_mail: localStorage.getItem('userSessionMailStorage'),
+            nom_name: localStorage.getItem('userSessionNameStorage')}
 
   constructor(private loginRegisterService: LoginRegisterService,
               public toastr: ToastsManager,
               vcr: ViewContainerRef,
-              private remedysService:RemedysService) {
+              private remedysService:RemedysService,
+              private router:Router) {
     this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
+    //this.user = this.loginRegisterService.getUser(localStorage.getItem('userSessionMailStorage'))
+    //console.log(this.user)
     this.menu = this.remedysService.remedyByUsers(localStorage.getItem('userSessionMailStorage'))
+  }
+
+  returnHome(){
+    this.router.navigate(['/'])
   }
 
   checkInformations(inf:any){
 
   var response
+
 
   response =  {des_mail:localStorage.getItem('userSessionMailStorage'),
               des_address:inf.des_address,

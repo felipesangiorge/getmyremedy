@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.removeItem('userSessionMailStorage')
     localStorage.removeItem('userSessionTokenStorage')
+    localStorage.removeItem('userSessionNameStorage')
 
       this.toastr.info("Deslogado com sucesso!")
   }
