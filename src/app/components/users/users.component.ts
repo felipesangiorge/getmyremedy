@@ -37,7 +37,9 @@ export class UsersComponent implements OnInit {
 
   checkInformations(inf:any){
 
+
   var response
+  var password_confirm = inf.des_password_confirm
 
 
   response =  {des_mail:localStorage.getItem('userSessionMailStorage'),
@@ -48,14 +50,25 @@ export class UsersComponent implements OnInit {
               num_phone:inf.num_phone,
               des_password:inf.des_password}
 
+
+    if(response.des_password != password_confirm){
+
+        this.toastr.error(`Error: As senhas não conferem umas com as outras.`)
+
+    }else{
+
         this.loginRegisterService.editUser(response)
               .subscribe(response => {
 
                     this.toastr.success(`Usuário editado com suecesso!`)
 
-              }, response => this.toastr.error(`Error: você precisa estar logado para editar o usuário.`))
+              }, response => {
+                this.toastr.error(`Error: você precisa estar logado para editar o usuário.`)
+                this.loginRegisterService.logout()
+                this.loginRegisterService.handleLogin()
+              })
 
-
+        }
 
     }
 

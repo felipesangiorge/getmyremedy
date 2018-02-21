@@ -19,6 +19,16 @@ export class RemedyRegisterComponent implements OnInit {
 }
 
   ngOnInit() {
+    //this.verifyTkr()
+  }
+
+  verifyTkr(){
+    console.log(localStorage.getItem('userSessionTokenStorage'))
+    this.loginRegisterService.verifyToken(localStorage.getItem('userSessionMailStorage')).subscribe(response => {
+
+    }, response => {
+      this.loginRegisterService.logout()
+    })
   }
 
   showSuccess(response) {
@@ -59,6 +69,8 @@ export class RemedyRegisterComponent implements OnInit {
 
       }else{
       this.showError("Você precisa se autenticar, caso já esteja autenticado tente novamente em alguns minutos.")
+      this.loginRegisterService.logout()
+      this.loginRegisterService.handleLogin()
         }
     })
 

@@ -33,19 +33,28 @@ isLogged(): boolean {
     return false
   }
 }
+
+logout(){
+  localStorage.removeItem('userSessionMailStorage')
+  localStorage.removeItem('userSessionTokenStorage')
+  localStorage.removeItem('userSessionNameStorage')
+
+}
+
 handleLogin(){
 
   this.router.navigate(['/login'])
 }
 
 
-/*loginService(email:string, password:string): Observable<User>{
+verifyToken(inf:any): Observable<any>{
   const headers = new Headers()
   headers.append('Content-Type','application/json')
-  return  this.http.post<User>(`${GMR_API}/api/login`,
-              {des_mail:email,des_password:password})
-              .do(user => this.user = user , console.log(this.user))
-}*/
+  headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+  return this.http.post(`${GMR_API}/api/users/verifyToken`,
+          JSON.stringify(inf), new RequestOptions({headers:headers}))
+          .map(response => response.json())
+}
 
 loginService(inf:any): Observable<any>{
   const headers = new Headers()

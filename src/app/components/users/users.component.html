@@ -31,12 +31,21 @@
                   <input name="num_cep" type="number" class="form-control" placeholder="Coloque o CEP" ngModel required>
                 </gmr-input-container>
 
-                <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório" label="Telefone:">
-                  <input name="num_phone" type="number" class="form-control" placeholder="Coloque o Telefone" ngModel required>
+                <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório não pode conter espaços" label="Telefone:">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  <input name="num_phone" class="form-control"  pattern="^[0-9_\-]+$" type="text" placeholder="00 000000000" maxlength="11" ngModel required>
+                  </div>
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório minimo 6 caracteres" label="Senha:">
                   <input name="des_password" class="form-control" placeholder="Coloque a senha" type="password" ngModel required minlength="6">
+                </gmr-input-container>
+
+                <gmr-input-container errorMessage="Campo obrigatório minimo 6 caracteres" label="Confirmar senha:">
+                  <input name="des_password_confirm" class="form-control" placeholder="Coloque a senha" type="password" ngModel required minlength="6">
                 </gmr-input-container>
 
 
@@ -52,7 +61,7 @@
                 <div class="form-group">
 
                   <div class="col-md-4 col-xs-6" type="sbmit">
-                    <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value)" [disabled]=" !formUser.valid"  name="remedyRegisterButtonSubmit">Editar</button>
+                    <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formUser.value)" [disabled]=" !formUser.valid"  name="remedyRegisterButtonSubmit">Editar</button>
                   </div>
 
                   <div class="col-md-4 ">

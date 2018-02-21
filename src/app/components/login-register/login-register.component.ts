@@ -19,6 +19,7 @@ export class LoginRegisterComponent implements OnInit {
   checkInformations(inf:any){
 
   var response
+  var password_confirm = inf.des_password_confirm
 
   response =  {nom_name:inf.nom_name,
               des_mail:inf.des_mail,
@@ -28,6 +29,10 @@ export class LoginRegisterComponent implements OnInit {
               num_cep:inf.num_cep,
               num_phone:inf.num_phone,
               des_password:inf.des_password}
+    if(response.des_password != password_confirm){
+      this.toastr.error(`Error: As senhas não conferem umas com as outras.`)
+
+    }else{
 
         this.loginRegisterService.registerNewUser(response)
               .subscribe(response => {
@@ -36,6 +41,7 @@ export class LoginRegisterComponent implements OnInit {
 
               }, response => this.toastr.error(`Error: Já existe um cadastro com esse e-mail.`))
 
+          }
 
 
     }

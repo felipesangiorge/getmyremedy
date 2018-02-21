@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Compiler } from '@angular/core';
 import {LoginRegisterService}from'../login-register.service'
 import{ToastsManager}from'ng2-toastr/ng2-toastr';
 import { ViewContainerRef } from '@angular/core';
 import {User}from'../user.model'
 import{Router}from'@angular/router'
+
 
 @Component({
   selector: 'gmr-login',
@@ -13,13 +14,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginRegisterService: LoginRegisterService,
               public toastr: ToastsManager,
-              vcr: ViewContainerRef) {
+              vcr: ViewContainerRef,
+              private compiler:Compiler) {
 
   this.toastr.setRootViewContainerRef(vcr);
 
 }
 
   ngOnInit() {
+    this.compiler.clearCache()
   }
 
   localStorageSet(mailStorage,tokenStorage,nameStorage){
