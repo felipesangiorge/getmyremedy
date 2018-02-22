@@ -9,6 +9,19 @@ export class HomeComponent implements OnInit {
 
   constructor(private loginRegisterService: LoginRegisterService) { }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    if(localStorage.getItem('userSessionTokenStorage') != null){
+      this.verifyTkr()
+    }
+  }
+
+  verifyTkr(){
+
+    this.loginRegisterService.verifyToken().subscribe(response => {
+
+    }, response => {
+      this.loginRegisterService.logout()
+    })
+  }
 
 }

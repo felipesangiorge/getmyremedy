@@ -13,8 +13,20 @@ export class LoginRegisterComponent implements OnInit {
   this.toastr.setRootViewContainerRef(vcr);
 }
 
-  ngOnInit() {
+ngOnInit() {
+  if(localStorage.getItem('userSessionTokenStorage') != null){
+    this.verifyTkr()
   }
+}
+
+verifyTkr(){
+
+  this.loginRegisterService.verifyToken().subscribe(response => {
+
+  }, response => {
+    this.loginRegisterService.logout()
+  })
+}
 
   checkInformations(inf:any){
 

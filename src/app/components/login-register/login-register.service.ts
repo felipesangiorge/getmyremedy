@@ -47,12 +47,11 @@ handleLogin(){
 }
 
 
-verifyToken(inf:any): Observable<any>{
+verifyToken(): Observable<any>{
   const headers = new Headers()
   headers.append('Content-Type','application/json')
-  headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
-  return this.http.post(`${GMR_API}/api/users/verifyToken`,
-          JSON.stringify(inf), new RequestOptions({headers:headers}))
+  headers.append('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+  return this.http.post(`${GMR_API}/api/users/verifyToken`, new RequestOptions({headers:headers}))
           .map(response => response.json())
 }
 

@@ -19,12 +19,14 @@ export class RemedyRegisterComponent implements OnInit {
 }
 
   ngOnInit() {
-    //this.verifyTkr()
+    if(localStorage.getItem('userSessionTokenStorage') != null){
+      this.verifyTkr()
+    }
   }
 
   verifyTkr(){
-    console.log(localStorage.getItem('userSessionTokenStorage'))
-    this.loginRegisterService.verifyToken(localStorage.getItem('userSessionMailStorage')).subscribe(response => {
+
+    this.loginRegisterService.verifyToken().subscribe(response => {
 
     }, response => {
       this.loginRegisterService.logout()
