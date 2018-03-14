@@ -25,6 +25,7 @@ verifyTkr(){
 
   }, response => {
     this.loginRegisterService.logout()
+    this.loginRegisterService.handleLogin()
   })
 }
 

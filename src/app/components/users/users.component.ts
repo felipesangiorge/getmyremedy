@@ -26,9 +26,21 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.user = this.loginRegisterService.getUser(localStorage.getItem('userSessionMailStorage'))
-    //console.log(this.user)
+
+    if(localStorage.getItem('userSessionTokenStorage') != null){
+      this.verifyTkr()
+    }
     this.menu = this.remedysService.remedyByUsers(localStorage.getItem('userSessionMailStorage'))
+  }
+
+  verifyTkr(){
+
+    this.loginRegisterService.verifyToken().subscribe(response => {
+
+    }, response => {
+      this.loginRegisterService.logout()
+      this.loginRegisterService.handleLogin()
+    })
   }
 
   returnHome(){

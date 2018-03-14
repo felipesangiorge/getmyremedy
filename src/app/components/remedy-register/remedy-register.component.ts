@@ -18,6 +18,22 @@ export class RemedyRegisterComponent implements OnInit {
   this.toastr.setRootViewContainerRef(vcr);
 }
 
+selectElements: any[] = [
+        { Name: 'Analgésico'},
+        { Name: 'Anti-inflamatório'},
+        { Name: 'Antigripal'},
+        { Name: 'Asma'},
+        { Name: 'Colesterol'},
+        { Name: 'Diabetes'},
+        { Name: 'Digestivo'},
+        { Name: 'Dor e Febre'},
+        { Name: 'Gastrite'},
+        { Name: 'Hipertensão'},
+        { Name: 'Osteoporose'},
+        { Name: 'Vitamina'},
+        { Name: 'Outro'}
+        ];
+
   ngOnInit() {
     if(localStorage.getItem('userSessionTokenStorage') != null){
       this.verifyTkr()
@@ -30,6 +46,7 @@ export class RemedyRegisterComponent implements OnInit {
 
     }, response => {
       this.loginRegisterService.logout()
+      this.loginRegisterService.handleLogin()
     })
   }
 
@@ -57,6 +74,7 @@ export class RemedyRegisterComponent implements OnInit {
                   des_description:inf.des_description,
                   des_imagePath:`assets/img/remedys/${inf.des_name.toLowerCase()}.jpg`,
                   idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
+
 
 
     this.remedysService.remedyRegisterService(response)

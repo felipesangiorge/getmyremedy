@@ -16,7 +16,10 @@
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório" label="Categoria:">
-                    <input name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
+                    <!--<input name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>-->
+                    <select #des_category name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
+                      <option *ngFor="let elements of selectElements" [value]="elements.Name">{{elements.Name}}</option>
+                    </select>
                   </gmr-input-container>
 
                   <gmr-input-container errorMessage="Campo obrigatório não pode conter espaços" label="Doságem:">
