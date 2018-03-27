@@ -25,6 +25,11 @@ body {
   margin-bottom: 20px;
 }
 
+.menu-item-info-box-custom{
+  margin-left: -20px;
+  display: -webkit-inline-box;
+}
+
 /*
  * Component: Place Info Box
  * -------------------

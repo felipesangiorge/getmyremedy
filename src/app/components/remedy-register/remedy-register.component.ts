@@ -73,7 +73,8 @@ selectElements: any[] = [
                   des_validate:inf.des_validate,
                   des_description:inf.des_description,
                   des_imagePath:`assets/img/remedys/${inf.des_name.toLowerCase()}.jpg`,
-                  idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage")}
+                  idtb_remedy_by_user:localStorage.getItem("userSessionMailStorage"),
+                  nom_name: localStorage.getItem('userSessionNameStorage')}
 
 
 
@@ -81,6 +82,7 @@ selectElements: any[] = [
     .subscribe((response: string)=>{
 
       this.showSuccess(response)
+
 
     }, response => {
       if(this.loginRegisterService.isLogged()){

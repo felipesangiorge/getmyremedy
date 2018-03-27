@@ -61,7 +61,14 @@ loginService(inf:any): Observable<any>{
   return  this.http.post(`${GMR_API}/api/login`,
     JSON.stringify(inf), new RequestOptions({headers:headers}))
                         .map(response =>  response.json())
+}
 
+forgotPassword(inf:any): Observable<any>{
+  const headers = new Headers()
+  headers.append('Content-Type','application/json')
+  return this.http.post(`${GMR_API}/api/login/forgotPassword`,
+    JSON.stringify(inf),new RequestOptions({headers:headers}))
+                        .map(response => response.json())
 }
 
 registerNewUser(inf:any): Observable<any>{

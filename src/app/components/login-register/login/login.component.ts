@@ -44,9 +44,10 @@ export class LoginComponent implements OnInit {
    this.loginRegisterService.loginService(response)
    .subscribe(response => {
 
+
       this.localStorageRemove()
       this.localStorageSet(response.user_mail,response.accessToken,response.nom_name)
-
+      this.compiler.clearCache()
       this.toastr.success(`Bem vindo ${response.user_mail} autenticado com sucesso!`)
 
       window.location.replace("/")

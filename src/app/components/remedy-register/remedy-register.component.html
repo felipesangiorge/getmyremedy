@@ -42,7 +42,7 @@
 
 
                 <div class="col-md-4 col-xs-6" type="submit">
-                  <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value)" [disabled]=" !formRemedy.valid && loggedIn()"  name="remedyRegisterButtonSubmit">Confirmar</button>
+                  <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value); formRemedy.reset()" [disabled]=" !formRemedy.valid && loggedIn()"  name="remedyRegisterButtonSubmit">Confirmar</button>
                 </div>
 
                 <div class="col-md-4 ">

@@ -29,7 +29,8 @@ import { CustomDialogComponent } from './shared/dialog/custom-dialog/custom-dial
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { LoginComponent } from './components/login-register/login/login.component';
 import {LoggedInGuard}from'./components/login-register/loggedin.guard';
-import { UsersComponent } from './components/users/users.component'
+import { UsersComponent } from './components/users/users.component';
+import { ForgotPasswordComponent } from './components/login-register/forgot-password/forgot-password.component'
 
 
 
@@ -52,6 +53,7 @@ import { UsersComponent } from './components/users/users.component'
     LoginRegisterComponent,
     LoginComponent,
     UsersComponent,
+    ForgotPasswordComponent,
 
 
   ],
