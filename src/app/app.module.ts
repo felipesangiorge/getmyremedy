@@ -30,7 +30,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { LoginComponent } from './components/login-register/login/login.component';
 import {LoggedInGuard}from'./components/login-register/loggedin.guard';
 import { UsersComponent } from './components/users/users.component';
-import { ForgotPasswordComponent } from './components/login-register/forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './components/login-register/forgot-password/forgot-password.component';
+import { RemedysSearchComponent } from './components/remedys/remedys-search/remedys-search.component'
 
 
 
@@ -54,6 +55,7 @@ import { ForgotPasswordComponent } from './components/login-register/forgot-pass
     LoginComponent,
     UsersComponent,
     ForgotPasswordComponent,
+    RemedysSearchComponent,
 
 
   ],

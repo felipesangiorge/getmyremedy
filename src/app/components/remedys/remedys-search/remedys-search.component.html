@@ -1,0 +1,32 @@
+<input class="form-control" placeholder="Pesquisar..." type="text" (keyup)="searchTerms.next($event.target.value)">
+
+
+
+<a *ngFor="let response of searchResults | slice:0:9"  [routerLink]="['/remedys',response?.idtb_remedys_menu]">
+  <div class="place-info-box">
+    <span class="place-info-box-icon"><img [src]="response?.des_imagePath" /></span>
+
+    <div class="place-info-box-content">
+      <span class="place-info-box-text">{{response?.des_name}}</span>
+      <span class="place-info-box-text">{{response?.des_dosage}} <i class="fa fa-thermometer"></i></span>
+      <span class="place-info-box-detail">Categoria: {{response?.des_category}}</span>
+
+
+    </div>
+    <!-- /.info-box-content
+  [routerLink]="['/remedys',remedy.des_name]"
+<img [src]="remedy.imagePath" /> -->
+  </div>
+</a>
+
+
+
+
+      <!--  <div class="input-group">
+          <input name="q" class="form-control" placeholder="Search..." type="text">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div> -->

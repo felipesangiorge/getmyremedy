@@ -4,6 +4,9 @@ import{Observable}from'rxjs/Observable'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/distinctUntilChanged'
+import 'rxjs/add/operator/switchMap'
 import{ErrorHandler}from'../../app.error-handler'
 import{Remedy}from'./remedy/remedy.model'
 import{MenuItem}from'./remedy-details/menu-item/menu-item.model'
@@ -23,6 +26,22 @@ export class RemedysService{
     return this.http.get(`${GMR_API}/api/remedys/remedysMenu`)
     .map(response => response.json())
     .catch(ErrorHandler.handleError)
+  }
+
+  searchEntries(term){  
+     if(term.length){
+      return this.http.get(`${GMR_API}/api/remedys/search/remedyMenu/${term}`)
+      .map(response => response.json())
+      .catch(ErrorHandler.handleError)
+    }else{
+      return Array.of(term)
+    }
+  }
+
+  search(terms: Observable<string>){
+    return terms.debounceTime(400)
+    .distinctUntilChanged()
+    .switchMap(term => this.searchEntries(term))
   }
 
   remedyBySameName(id:any):Observable<MenuItem[]>{
