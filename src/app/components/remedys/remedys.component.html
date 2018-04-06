@@ -1,22 +1,29 @@
 
 <div class="content content-custom">
-<section class="content-header">
-  <div class="col-xs-4 col-md-4">
-    <h2>Remédios em destaque</h2>
-  </div>
-
-  <div class="col-xs-4 col-md-4">
-  </div>
-
-  <gmr-remedys-search></gmr-remedys-search>
-
-</section>
+    <section class="content-header">
+      <div class="col-xs-4 col-md-4">
+        <h2>Remédios em destaque</h2>
+      </div>
+    </section>
 </div>
+
 <section class="content">
+    <div>
+          <div class="col-md-8 col-xs-12 login-box-body-custom">
+            <h4>Pesquisar por nome:</h4>
+            <gmr-remedys-search></gmr-remedys-search>
+          </div>
+          <div class="col-md-4 login-box-body-custom">
+            <h4>Pesquisar por categoria:</h4>
+                <select #des_category name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
+                  <option *ngFor="let elements of selectElements" [selected]="elements === 'Todos'"  [value]="elements.Name">{{elements.Name}}</option>
+                </select>
+          </div>
+    </div>
+
   <div class="row">
     <div *ngFor="let remedy of remedys " class="col-sm-6 col-xs-12">
         <gmr-remedy [remedy]="remedy"></gmr-remedy>
     </div>
   </div>
-
 </section>

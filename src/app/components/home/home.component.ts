@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Compiler } from '@angular/core';
 import {LoginRegisterService}from'../login-register/login-register.service'
 
 @Component({
@@ -7,12 +7,13 @@ import {LoginRegisterService}from'../login-register/login-register.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loginRegisterService: LoginRegisterService) { }
+  constructor(private loginRegisterService: LoginRegisterService, private compiler:Compiler) { }
 
   ngOnInit() {
     if(localStorage.getItem('userSessionTokenStorage') != null){
       this.verifyTkr()
     }
+        this.compiler.clearCache()
   }
 
   verifyTkr(){

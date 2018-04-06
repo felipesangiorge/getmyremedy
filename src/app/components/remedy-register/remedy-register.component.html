@@ -11,7 +11,7 @@
 
                 <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do remédio</h3>
 
-                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres e não pode conter espaços" label="Nome do Remédio:">
+                  <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres e não pode conter espaços ou caracteres especiais." label="Nome do Remédio:">
                     <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" pattern="^[a-zA-Z_\-]+$" ngModel required minlength="3">
                   </gmr-input-container>
 
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-md-4 col-xs-6" type="submit">
-                  <button class="btn btn-danger col-md-12 button-custom" type="submit" (click)="returnHome()" name="remedyRegisterButtonSubmit">Cencelar</button>
+                  <button class="btn btn-danger col-md-12 button-custom" type="submit" (click)="returnHome()" name="remedyRegisterButtonSubmit">Cancelar</button>
                 </div>
 
 

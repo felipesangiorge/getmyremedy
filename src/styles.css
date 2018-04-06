@@ -30,6 +30,13 @@ body {
   display: -webkit-inline-box;
 }
 
+#custom_scroll {
+  width:100%;
+  height:150px;
+  background-color:#FFFFFF09;
+  overflow:auto;
+}
+
 /*
  * Component: Place Info Box
  * -------------------
