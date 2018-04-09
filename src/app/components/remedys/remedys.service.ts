@@ -28,7 +28,7 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
-  searchEntries(term){  
+  searchEntries(term){
      if(term.length){
       return this.http.get(`${GMR_API}/api/remedys/search/remedyMenu/${term}`)
       .map(response => response.json())
@@ -49,6 +49,13 @@ export class RemedysService{
     .map(response =>response.json())
     .catch(ErrorHandler.handleError)
   }
+
+  remedyMenuByCategory(id:any):Observable<any>{
+    return this.http.get(`${GMR_API}/api/remedys/remedysMenu/category/${id}`)
+    .map(response => response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
   remedyByUsers(id:any):Observable<MenuItem[]>{
     return this.http.get(`${GMR_API}/api/users/remedys/${id}`)
     .map(response =>response.json())

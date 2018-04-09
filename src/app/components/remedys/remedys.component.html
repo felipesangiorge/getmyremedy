@@ -15,8 +15,8 @@
           </div>
           <div class="col-md-4 login-box-body-custom">
             <h4>Pesquisar por categoria:</h4>
-                <select #des_category name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
-                  <option *ngFor="let elements of selectElements" [selected]="elements === 'Todos'"  [value]="elements.Name">{{elements.Name}}</option>
+                <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
+                  <option *ngFor="let elements of selectElements" [selected]="elements.Name == 'Todos'" [value]="elements.Name">{{elements.Name}}</option>
                 </select>
           </div>
     </div>

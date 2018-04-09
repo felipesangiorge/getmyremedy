@@ -15,12 +15,13 @@
                     <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" pattern="^[a-zA-Z_\-]+$" ngModel required minlength="3">
                   </gmr-input-container>
 
-                  <gmr-input-container errorMessage="Campo obrigatório" label="Categoria:">
-                    <!--<input name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>-->
-                    <select #des_category name="des_category" class="form-control" placeholder="Coloque a categoria" ngModel required>
+                <div class="form-group">
+                  <label>Escolha uma categoria:</label>
+                    <select #des_category name="des_category" class="form-control" ngForm="formRemedy" required >
+                      <option [value]="undefined" selected disabled>Escolha uma categoria</option>
                       <option *ngFor="let elements of selectElements" [value]="elements.Name">{{elements.Name}}</option>
                     </select>
-                  </gmr-input-container>
+                </div>
 
                   <gmr-input-container errorMessage="Campo obrigatório não pode conter espaços" label="Doságem:">
                     <input name="des_dosage" class="form-control" placeholder="Coloque a doságem exemplo: 10ml" pattern="^[a-zA-Z0-9_\-]+$" ngModel required>
@@ -42,7 +43,7 @@
 
 
                 <div class="col-md-4 col-xs-6" type="submit">
-                  <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value); formRemedy.reset()" [disabled]=" !formRemedy.valid && loggedIn()"  name="remedyRegisterButtonSubmit">Confirmar</button>
+                  <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formRemedy.value,des_category.value); formRemedy.reset()" [disabled]=" !formRemedy.valid &&  loggedIn()"  name="remedyRegisterButtonSubmit">Confirmar</button>
                 </div>
 
                 <div class="col-md-4 ">

@@ -9,6 +9,7 @@ import {RemedysService}from'./remedys.service'
 export class RemedysComponent implements OnInit {
 
   remedys: Remedy[]
+  input: any = true
 
   selectElements: any[] = [
           { Name: 'Todos'},
@@ -34,7 +35,11 @@ export class RemedysComponent implements OnInit {
   }
 
   onOptionChange(inf:any){
-    console.log(inf)
+    if(inf != "Todos"){
+    this.remedysService.remedyMenuByCategory(inf).subscribe(remedys => this.remedys = remedys)
+  }else{
+    this.ngOnInit()
+  }
   }
 
 

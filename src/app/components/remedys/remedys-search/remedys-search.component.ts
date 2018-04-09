@@ -16,7 +16,7 @@ export class RemedysSearchComponent implements OnInit {
 
 
      this.remedysService.search(this.searchTerms).subscribe(response =>{
-      
+
           if(response){
               this.searchResults =  response
               this.input = true
