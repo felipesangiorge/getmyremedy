@@ -1,35 +1,37 @@
-<div class="col-xs-12 col-sm-6" *ngFor="let comment of comments | async">
+<div id="home_custom_scroll">
+  <div class="col-xs-12 col-sm-6" *ngFor="let comment of comments | async">
 
-  <div class="box box-solid">
-    <div class="box-header with-border">
-      <span class="review-score pull-right"><i class="fa fa-user"></i></span>
-      <div class="user-block">
-        <span class="username">{{comment.nom_name}}</span>
-        <span class="description">{{comment.des_date}}</span>
+    <div class="box box-solid">
+      <div class="box-header with-border">
+        <span class="review-score pull-right"><i class="fa fa-user"></i></span>
+        <div class="user-block">
+          <span class="username">{{comment.nom_name}}</span>
+          <span class="description">{{comment.des_date}}</span>
+        </div>
+      </div>
+
+      <div class="box-body">
+        <p>{{comment.des_comment}}</p>
       </div>
     </div>
 
-    <div class="box-body">
-      <p>{{comment.des_comment}}</p>
-    </div>
   </div>
 
-</div>
+  <div class=footer>
 
-<div class=footer>
+  <div class="col-md-3"></div>
 
-<div class="col-md-3"></div>
+  <div class="container content col-md-6">
 
-<div class="container content col-md-6">
+      <form #formComment="ngForm" novalidate>
+        <gmr-input-container errorMessage="Minimo 5 caracteres">
+          <textarea name="des_comment" class="form-control" placeholder="Coloque seu comentario" maxlength="140" minlength="5" ngModel required></textarea>
+        </gmr-input-container>
+      </form>
+      <button class="btn btn-primary pull-right" type="submit" (click)="checkInformations(formComment.value)" [disabled]=" !formComment.valid"  name="remedyCommentButtonSubmit">Enviar</button>
+  </div>
 
-    <form #formComment="ngForm" novalidate>
-      <gmr-input-container errorMessage="Minimo 5 caracteres">
-        <textarea name="des_comment" class="form-control" placeholder="Coloque seu comentario" maxlength="140" minlength="5" ngModel required></textarea>
-      </gmr-input-container>
-    </form>
-    <button class="btn btn-primary pull-right" type="submit" (click)="checkInformations(formComment.value)" [disabled]=" !formComment.valid"  name="remedyCommentButtonSubmit">Enviar</button>
-</div>
+  <div class="col-md-3"></div>
 
-<div class="col-md-3"></div>
-
+  </div>
 </div>

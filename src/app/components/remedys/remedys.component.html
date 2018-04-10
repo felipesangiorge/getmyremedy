@@ -13,7 +13,7 @@
             <h4>Pesquisar por nome:</h4>
             <gmr-remedys-search></gmr-remedys-search>
           </div>
-          <div class="col-md-4 login-box-body-custom">
+          <div class="col-md-4 col-xs-12 login-box-body-custom">
             <h4>Pesquisar por categoria:</h4>
                 <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
                   <option *ngFor="let elements of selectElements" [selected]="elements.Name == 'Todos'" [value]="elements.Name">{{elements.Name}}</option>
@@ -21,7 +21,12 @@
           </div>
     </div>
 
-  <div class="row">
+  <div class="row" id="home_custom_scroll">
+    <div *ngIf="!hasNoResponse()">
+      <h4 >Sem registro...       <i class="fa fa-frown-o"></i></h4>
+      <h4> Lamentamos a pesquisa por categoria não retornou nenhum registro.</h4>
+      <h4> Tente escolher outra categoria, ou busque por todos.</h4>
+    </div>
     <div *ngFor="let remedy of remedys " class="col-sm-6 col-xs-12">
         <gmr-remedy [remedy]="remedy"></gmr-remedy>
     </div>

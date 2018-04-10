@@ -21,7 +21,7 @@ export class RemedysSearchComponent implements OnInit {
               this.searchResults =  response
               this.input = true
                   if(!response.length){
-                    console.log("vazio")
+
                       this.input = false
                   }
           }else{

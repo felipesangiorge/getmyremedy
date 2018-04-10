@@ -31,17 +31,31 @@ export class RemedysComponent implements OnInit {
   constructor(private remedysService :RemedysService) { }
 
   ngOnInit() {
-    this.remedysService.remedys().subscribe(remedys => this.remedys = remedys)
+    this.remedysService.remedys().subscribe(remedys => {
+      this.remedys = remedys
+    })
   }
 
   onOptionChange(inf:any){
-    if(inf != "Todos"){
-    this.remedysService.remedyMenuByCategory(inf).subscribe(remedys => this.remedys = remedys)
-  }else{
-    this.ngOnInit()
-  }
+      if(inf != "Todos"){
+      this.input = true
+      this.remedysService.remedyMenuByCategory(inf).subscribe(remedys => {
+        this.remedys = remedys
+            if(!remedys.length){
+              this.input = false
+            }else{
+              this.input = true
+            }
+      })
+    }else{
+      this.input = true
+      this.ngOnInit()
+    }
   }
 
+  hasNoResponse():boolean{
+    return this.input
+  }
 
 
 }
