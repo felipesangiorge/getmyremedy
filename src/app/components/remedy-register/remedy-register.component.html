@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                   <label>Escolha uma categoria:</label>
-                    <select #des_category name="des_category" class="form-control" ngForm="formRemedy" required >
+                    <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" ngForm="formRemedy" required >
                       <option [value]="undefined" selected disabled>Escolha uma categoria</option>
                       <option *ngFor="let elements of selectElements" [value]="elements.Name">{{elements.Name}}</option>
                     </select>

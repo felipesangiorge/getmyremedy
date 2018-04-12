@@ -46,6 +46,17 @@ handleLogin(){
   this.router.navigate(['/login'])
 }
 
+getAllStates(): Observable<any>{
+  return this.http.get(`${GMR_API}/api/informations/allstates`)
+  .map(response =>response.json())
+  .catch(ErrorHandler.handleError)
+}
+
+getCityByState(id:any): Observable<any>{
+  return this.http.get(`${GMR_API}/api/informations/city/${id}`)
+  .map(response =>response.json())
+  .catch(ErrorHandler.handleError)
+}
 
 verifyToken(): Observable<any>{
   const headers = new Headers()

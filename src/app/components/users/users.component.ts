@@ -15,7 +15,13 @@ export class UsersComponent implements OnInit {
 
     menu: Observable<MenuItem[]>
     user = {user_mail: localStorage.getItem('userSessionMailStorage'),
-            nom_name: localStorage.getItem('userSessionNameStorage')}
+            nom_name: localStorage.getItem('userSessionNameStorage'),
+            des_address:'',
+            des_city:'',
+            des_state:''}
+
+    selectElements: any[]
+    selectElementsCity:any[]
 
   constructor(private loginRegisterService: LoginRegisterService,
               public toastr: ToastsManager,
@@ -31,6 +37,17 @@ export class UsersComponent implements OnInit {
       this.verifyTkr()
     }
     this.menu = this.remedysService.remedyByUsers(localStorage.getItem('userSessionMailStorage'))
+    this.loginRegisterService.getAllStates().subscribe(response => {
+      this.selectElements = response
+    })
+    this.loginRegisterService.getUser(localStorage.getItem('userSessionMailStorage')).subscribe(response => console.log(response))
+  }
+
+  onOptionChange(inf:any){
+
+    this.loginRegisterService.getCityByState(inf).subscribe(response =>{
+      this.selectElementsCity = response
+    })
   }
 
   verifyTkr(){
@@ -47,7 +64,7 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
-  checkInformations(inf:any){
+  checkInformations(inf:any,state:any,city:any){
 
 
   var response
@@ -56,18 +73,24 @@ export class UsersComponent implements OnInit {
 
   response =  {des_mail:localStorage.getItem('userSessionMailStorage'),
               des_address:inf.des_address,
-              des_city:inf.des_city,
-              des_state:inf.des_state,
+              des_city:city,
+              des_state:state,
               num_cep:inf.num_cep,
               num_phone:inf.num_phone,
               des_password:inf.des_password}
 
 
-    if(response.des_password != password_confirm){
+    if(response.des_password != password_confirm ){
 
         this.toastr.error(`Error: As senhas não conferem umas com as outras.`)
 
-    }else{
+    }
+      if(city == 'undefined' || state =='undefined'){
+
+          this.toastr.error(`Error: Os campos estado e cidade devem ser preenchidos.`)
+
+        }
+      else{
 
         this.loginRegisterService.editUser(response)
               .subscribe(response => {

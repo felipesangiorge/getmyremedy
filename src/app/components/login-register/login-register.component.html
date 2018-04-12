@@ -19,13 +19,21 @@
                   <input name="des_address" class="form-control" placeholder="Coloque o endereço" ngModel required>
                 </gmr-input-container>
 
-                <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório" label="Cidade:">
-                  <input name="des_city" class="form-control" placeholder="Coloque a cidade" ngModel required>
-                </gmr-input-container>
+                <div class="col-md-6 col-xs-12">
+                  <label>Estado: </label>
+                  <select #des_state name="des_state" (change)="onOptionChange($event.target.value)" class="form-control" >
+                    <option [value]="undefined" selected disabled>Coloque o estado</option>
+                    <option *ngFor="let elements of selectElements" [value]="elements.Nome">{{elements.Nome}}</option>
+                  </select>
+                </div>
 
-                <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório minimo 2 caracteres" label="Estado:">
-                  <input name="des_state" class="form-control" placeholder="Coloque o Estado" ngModel required minlength="2">
-                </gmr-input-container>
+                <div class="col-md-6 col-xs-12">
+                  <label>Cidade: </label>
+                  <select #des_city name="des_city" class="form-control " >
+                    <option [value]="undefined" selected disabled>Coloque a cidade</option>
+                    <option *ngFor="let elements of selectElementsCity" [value]="elements.Nome">{{elements.Nome}}</option>
+                  </select>
+                </div>
 
                 <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório" label="Cep:">
                   <input name="num_cep" type="number" class="form-control" placeholder="Coloque o CEP" ngModel required>
@@ -61,7 +69,7 @@
                 <div class="form-group">
 
                   <div class="col-md-4 col-xs-6" type="sbmit">
-                    <button class="btn btn-primary col-md-12 button-custom" type="sbmit" (click)="checkInformations(formRemedy.value);formRemedy.reset()" [disabled]=" !formRemedy.valid"  name="remedyRegisterButtonSubmit">Confirmar</button>
+                    <button class="btn btn-primary col-md-12 button-custom" type="sbmit" (click)="checkInformations(formRemedy.value,des_state.value,des_city.value);formRemedy.reset()" [disabled]=" !formRemedy.valid"  name="remedyRegisterButtonSubmit">Confirmar</button>
                   </div>
 
                   <div class="col-md-4 ">

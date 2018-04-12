@@ -34,7 +34,7 @@ selectElements: any[] = [
         { Name: 'Outro'}
         ];
 
-private onOptionChengeState:boolean = false
+private onOptionChengeState:boolean = true
 
   ngOnInit() {
     if(localStorage.getItem('userSessionTokenStorage') != null){
@@ -100,25 +100,6 @@ private onOptionChengeState:boolean = false
           this.showError(`Você precisa definir uma categoria.`)
 
             }
-  /*  this.remedysService.remedyRegisterService(response)
-    .subscribe((response: string)=>{
-
-      this.showSuccess(response)
-
-
-    }, response => {
-      if(this.loginRegisterService.isLogged()){
-
-      this.showError(`Error: ${response}`)
-
-      }else{
-      this.showError("Você precisa se autenticar, caso já esteja autenticado tente novamente em alguns minutos.")
-      this.loginRegisterService.logout()
-      this.loginRegisterService.handleLogin()
-        }
-    })*/
-
-
 
   }
 

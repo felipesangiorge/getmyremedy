@@ -23,7 +23,7 @@ export class InputComponent implements OnInit, AfterContentInit, ControlValueAcc
 
   ngAfterContentInit(){
     this.input = this.model
-    if(this.input === undefined){
+     if(this.input === undefined){
       throw new Error('Esse component precisa ser usado com uma diretiva NgModel')
     }
   }
