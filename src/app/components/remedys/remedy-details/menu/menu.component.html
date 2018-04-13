@@ -2,7 +2,8 @@
 <div class="col-md-4 col-xs-12 login-box-body-custom">
   <label>Pesquisar por cidade:</label>
       <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
-        <option *ngFor="let elements of selectElements" [selected]="elements.Name == 'Todos'" [value]="elements.Name">{{elements.Name}}</option>
+        <!--<option [value]='undefined' selected>Todos</option>-->
+        <option *ngFor="let elements of selectElements" [selected]="elements == 'Todos'" [value]="elements">{{elements}}</option>
       </select>
 </div>
 

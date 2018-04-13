@@ -50,6 +50,12 @@ export class RemedysService{
     .catch(ErrorHandler.handleError)
   }
 
+  remedyBySameNameAndCity(id:any,city:any):Observable<MenuItem[]>{
+    return this.http.get(`${GMR_API}/api/remedysByCity/${id}&${city}`)
+    .map(response =>response.json())
+    .catch(ErrorHandler.handleError)
+  }
+
   remedyMenuByCategory(id:any):Observable<any>{
     return this.http.get(`${GMR_API}/api/remedys/remedysMenu/category/${id}`)
     .map(response => response.json())

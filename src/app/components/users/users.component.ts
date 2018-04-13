@@ -18,10 +18,14 @@ export class UsersComponent implements OnInit {
             nom_name: localStorage.getItem('userSessionNameStorage'),
             des_address:'',
             des_city:'',
-            des_state:''}
+            des_state:'',
+            num_cep:'',
+            num_phone:''}
 
     selectElements: any[]
     selectElementsCity:any[]
+
+    stateDirty:boolean = true
 
   constructor(private loginRegisterService: LoginRegisterService,
               public toastr: ToastsManager,
@@ -40,11 +44,19 @@ export class UsersComponent implements OnInit {
     this.loginRegisterService.getAllStates().subscribe(response => {
       this.selectElements = response
     })
-    this.loginRegisterService.getUser(localStorage.getItem('userSessionMailStorage')).subscribe(response => console.log(response))
+    this.loginRegisterService.getUser(localStorage.getItem('userSessionMailStorage')).subscribe(response => {
+
+      this.user.des_address = response[0].des_address
+      this.user.des_city = response[0].des_city
+      this.user.des_state = response[0].des_state
+      this.user.num_cep = response[0].num_cep
+      this.user.num_phone = response[0].num_phone
+
+    })
   }
 
   onOptionChange(inf:any){
-
+    this.stateDirty = false
     this.loginRegisterService.getCityByState(inf).subscribe(response =>{
       this.selectElementsCity = response
     })

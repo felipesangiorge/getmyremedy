@@ -100,7 +100,10 @@ editUser(inf:any): Observable<any>{
 }
 
 getUser(id:any):Observable<any>{
-  return this.http.get(`${GMR_API}/api/users/${id}`)
+  const headers = new Headers()
+  headers.append('Content-Type','application/json')
+  headers.set('Authorization',`Bearer ${localStorage.getItem("userSessionTokenStorage")}`)
+  return this.http.get(`${GMR_API}/api/users/${id}`,new RequestOptions({headers:headers}))
   .map(response =>response.json())
   .catch(ErrorHandler.handleError)
 }

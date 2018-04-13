@@ -16,27 +16,27 @@
                 </gmr-input-container>
 
                 <gmr-input-container errorMessage="Campo obrigatório" label="Endereço:">
-                  <input name="des_address" class="form-control" placeholder="Coloque o endereço" ngModel="{{user.user_mail}}" required>
+                  <input name="des_address" class="form-control" placeholder="Coloque o endereço" ngModel="{{user.des_address}}" required>
                 </gmr-input-container>
 
                 <div class="col-md-6 col-xs-12">
                   <label>Estado: </label>
                   <select #des_state name="des_state" (change)="onOptionChange($event.target.value)" class="form-control" >
-                    <option [value]="undefined" selected disabled>Coloque o estado</option>
-                    <option *ngFor="let elements of selectElements" [value]="elements.Nome">{{elements.Nome}}</option>
+                  <!--  <option [value]="user.des_state" selected >{{user.des_state}}</option>-->
+                    <option *ngFor="let elements of selectElements" [selected]="elements.Nome == user.des_state" [value]="elements.Nome">{{elements.Nome}}</option>
                   </select>
                 </div>
 
                 <div class="col-md-6 col-xs-12">
                   <label>Cidade: </label>
                   <select #des_city name="des_city" class="form-control " >
-                    <option [value]="undefined" selected disabled>Coloque a cidade</option>
-                    <option *ngFor="let elements of selectElementsCity" [value]="elements.Nome">{{elements.Nome}}</option>
+                    <option *ngIf="stateDirty" [value]="user.des_city" selected >{{user.des_city}}</option>                
+                    <option *ngFor="let elements of selectElementsCity" [selected]="elements.Nome == user.des_city" [value]="elements.Nome">{{elements.Nome}}</option>
                   </select>
                 </div>
 
                 <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório" label="Cep:">
-                  <input name="num_cep" type="number" class="form-control" placeholder="Coloque o CEP" ngModel required>
+                  <input name="num_cep" type="number" class="form-control" placeholder="Coloque o CEP" ngModel="{{user.num_cep}}" required>
                 </gmr-input-container>
 
                 <gmr-input-container class="col-md-6 col-xs-12" errorMessage="Campo obrigatório não pode conter espaços" label="Telefone:">
@@ -44,7 +44,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-phone"></i>
                     </div>
-                  <input name="num_phone" class="form-control"  pattern="^[0-9_\-]+$" type="text" placeholder="00 000000000" maxlength="11" ngModel required>
+                  <input name="num_phone" class="form-control"  pattern="^[0-9_\-]+$" type="text" placeholder="00 000000000" maxlength="11" ngModel="{{user.num_phone}}" required>
                   </div>
                 </gmr-input-container>
 
@@ -69,7 +69,9 @@
                 <div class="form-group">
 
                   <div class="col-md-4 col-xs-6" type="submit">
-                    <button class="btn btn-primary col-md-12 button-custom" type="submit" (click)="checkInformations(formUser.value,des_state.value,des_city.value); formUser.reset()" [disabled]=" !formUser.valid"  name="remedyRegisterButtonSubmit">Editar</button>
+                    <button class="btn btn-primary col-md-12 button-custom" type="submit"
+                    (click)="checkInformations(formUser.value,des_state.value,des_city.value)"
+                    [disabled]=" !formUser.valid"  name="remedyRegisterButtonSubmit">Editar</button>
                   </div>
 
                   <div class="col-md-4 ">
