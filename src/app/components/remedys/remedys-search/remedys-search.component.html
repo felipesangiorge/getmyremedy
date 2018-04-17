@@ -1,11 +1,12 @@
-<input class="form-control" placeholder="Pesquisar..." type="text" (keyup)="searchTerms.next($event.target.value)">
+<input (blur)="onBlur()" (focus)="onFocus()" class="form-control" placeholder="Pesquisar..."
+type="text" [@onFocused]="focus" (keyup)="searchTerms.next($event.target.value)">
 
 <div *ngIf="!hasNoResponse()">
   <h4 >Sem registro...       <i class="fa fa-frown-o"></i></h4>
   <h4> Lamentamos a pesquisa não retornou nenhum registro.</h4>
 </div>
-<div *ngIf="searchResults" id="custom_scroll">
-<a *ngFor="let response of searchResults | slice:0:9"  [routerLink]="['/remedys',response?.idtb_remedys_menu]">
+<div *ngIf="searchResults" id="custom_scroll" [@flyInOut]="flyInOutVisibility">
+<a *ngFor="let response of searchResults | slice:0:9" [routerLink]="['/remedys',response?.idtb_remedys_menu]">
   <div class="place-info-box">
     <span class="place-info-box-icon"><img [src]="response?.des_imagePath" /></span>
 

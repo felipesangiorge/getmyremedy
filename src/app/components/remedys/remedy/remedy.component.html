@@ -1,16 +1,18 @@
-<a   [routerLink]="['/remedys',remedy.idtb_remedys_menu]">
-  <div class="place-info-box">
-    <span class="place-info-box-icon"><img [src]="remedy.des_imagePath" /></span>
+<div (mouseover)="mouseOver()" (mouseleave)="mouseLeave()" [@mouseFocus]="focus" >
+  <a [routerLink]="['/remedys',remedy.idtb_remedys_menu]">
+    <div class="place-info-box">
+      <span class="place-info-box-icon"><img [src]="remedy.des_imagePath" /></span>
 
-    <div class="place-info-box-content">
-      <span class="place-info-box-text">{{remedy.des_name}}</span>
-      <span class="place-info-box-text">{{remedy.des_dosage}} <i class="fa fa-thermometer"></i></span>
-      <span class="place-info-box-detail">Categoria: {{remedy.des_category}}</span>
+      <div class="place-info-box-content">
+        <span class="place-info-box-text">{{remedy.des_name}}</span>
+        <span class="place-info-box-text">{{remedy.des_dosage}} <i class="fa fa-thermometer"></i></span>
+        <span class="place-info-box-detail">Categoria: {{remedy.des_category}}</span>
 
 
+      </div>
+      <!-- /.info-box-content
+    [routerLink]="['/remedys',remedy.des_name]"
+  <img [src]="remedy.imagePath" /> -->
     </div>
-    <!-- /.info-box-content
-  [routerLink]="['/remedys',remedy.des_name]"
-<img [src]="remedy.imagePath" /> -->
-  </div>
-</a>
+  </a>
+</div>

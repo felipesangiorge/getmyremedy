@@ -31,7 +31,7 @@ import { LoginComponent } from './components/login-register/login/login.componen
 import {LoggedInGuard}from'./components/login-register/loggedin.guard';
 import { UsersComponent } from './components/users/users.component';
 import { ForgotPasswordComponent } from './components/login-register/forgot-password/forgot-password.component';
-import { RemedysSearchComponent } from './components/remedys/remedys-search/remedys-search.component'
+import { RemedysSearchComponent } from './components/remedys/remedys-search/remedys-search.component';
 
 
 
@@ -56,6 +56,7 @@ import { RemedysSearchComponent } from './components/remedys/remedys-search/reme
     UsersComponent,
     ForgotPasswordComponent,
     RemedysSearchComponent,
+
 
 
   ],

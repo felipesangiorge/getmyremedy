@@ -2,12 +2,18 @@
 <div class="col-md-4 col-xs-12 login-box-body-custom">
   <label>Pesquisar por cidade:</label>
       <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
-        <!--<option [value]='undefined' selected>Todos</option>-->
+
         <option *ngFor="let elements of selectElements" [selected]="elements == 'Todos'" [value]="elements">{{elements}}</option>
       </select>
 </div>
 
 <div id="home_custom_scroll">
+
+  <div *ngIf="(menu | async)?.length == 0">
+    <h4 >Sem registro...       <i class="fa fa-frown-o"></i></h4>
+    <h4> Não existem remédios cadastrados para essa categoria.</h4>
+    <h4> Tente escolher outra categoria, ou cadastre um novo remédio : <a href="#" [routerLink]="['/remedy-register']"><h4>Cadastrar novo remédio</h4></a></h4>
+  </div>
 
     <div class="col-sm-6 col-xs-12" *ngFor="let item of menu | async" >
 

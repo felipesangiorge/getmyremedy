@@ -1,15 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import {Remedy}from'./remedy/remedy.model'
 import {RemedysService}from'./remedys.service'
+import {trigger,state,style,transition,animate}from "@angular/animations"
 
 @Component({
   selector: 'gmr-remedys',
-  templateUrl: './remedys.component.html'
+  templateUrl: './remedys.component.html',
+  animations: [
+    trigger('popOverState', [
+      state('show', style({
+        opacity: 1
+      })),
+      state('hide',   style({
+        opacity: 0
+      })),
+      transition('show => hide', animate('600ms ease-out')),
+      transition('hide => show', animate('1000ms ease-in'))
+    ])
+  ]
 })
 export class RemedysComponent implements OnInit {
 
   remedys: Remedy[]
   input: any = true
+  show = 'hide'
+  focus = 'focus'
 
   selectElements: any[] = [
           { Name: 'Todos'},
@@ -33,6 +48,7 @@ export class RemedysComponent implements OnInit {
   ngOnInit() {
     this.remedysService.remedys().subscribe(remedys => {
       this.remedys = remedys
+      this.toggleIn()
     })
   }
 
@@ -44,6 +60,7 @@ export class RemedysComponent implements OnInit {
             if(!remedys.length){
               this.input = false
             }else{
+
               this.input = true
             }
       })
@@ -52,6 +69,11 @@ export class RemedysComponent implements OnInit {
       this.ngOnInit()
     }
   }
+
+  toggleIn() {
+   this.show = 'show'
+ }
+
 
   hasNoResponse():boolean{
     return this.input

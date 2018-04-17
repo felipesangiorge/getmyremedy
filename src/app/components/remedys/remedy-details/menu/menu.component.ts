@@ -33,6 +33,7 @@ export class MenuComponent implements OnInit {
         i++
       })
     })
+  
     this.selectElements = arr
   }
 
