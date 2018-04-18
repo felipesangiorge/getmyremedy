@@ -2,19 +2,20 @@
 <div class="content content-custom">
     <section class="content-header">
       <div class="col-xs-12 col-md-4">
-        <h2>Remédios em destaque</h2>
-      </div>
+        <h2 class="main-titles-custom">Destaques:</h2>
+    </div>
     </section>
 </div>
 
 <section class="content">
     <div>
           <div class="col-md-8 col-xs-12 login-box-body-custom">
-            <h4>Pesquisar por nome:</h4>
+            <h4 class="main-subtitles-custom">Pesquisar por nome:</h4>
             <gmr-remedys-search></gmr-remedys-search>
           </div>
+
           <div class="col-md-4 col-xs-12 login-box-body-custom">
-            <h4>Pesquisar por categoria:</h4>
+            <h4 class="main-subtitles-custom">Pesquisar por categoria:</h4>
                 <select #des_category name="des_category" (change)="onOptionChange($event.target.value)"
                  class="form-control" placeholder="Coloque a categoria">
 

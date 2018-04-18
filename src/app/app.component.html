@@ -5,12 +5,26 @@
   <!-- Fim do header -->
 
   <!-- Full Width Column -->
-  <div class="content-wrapper">
-    <div class="container">
+  <div *ngIf="router.url != '/'" class="content-wrapper">
+      <div class="container">
 
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
 
     </div>
+  </div>
+
+  <div *ngIf="router.url == '/'">
+    <div class="content-wrapper background-image-custom">
+        <div class="container">
+
+          <gmr-home></gmr-home>
+
+      </div>
+    </div>
+  </div>
+
+  <div [@flyInOut]="flyInOutVisibility" (click)="backToTop()" *ngIf="showBackTop" class="pull-right back-to-top-custom " style="margin-right:30px">
+    <a class="wrapper-custom">Topo</a>
   </div>
 
   <!-- snakbar deve ser aqui -->
@@ -20,6 +34,7 @@
       <div class="pull-right hidden-xs col-xs-3 col-md-3">
         <b>Version</b> 1.1.0
       </div>
+
             <div class="col-xs-6 col-md-3">
             <strong>GetMyRemedy</strong>
 
