@@ -1,15 +1,12 @@
-<section class="content-header">
-  <h1>Cadastrar Remédio</h1>
-</section>
 
-<section class="content col-md-12 col-xs-12">
+<section class="content-custom-form col-md-12 col-xs-12">
   <div class="container col-xs-12">
     <div class="col-md-12">
         <div class="box-header with-border box box-primary">
             <div class="form-group">
               <form #formRemedy="ngForm" novalidate>
 
-                <h3 class="box-title callout callout-info col-md-12 col-xs-12">Dados do remédio</h3>
+                <h3 class="box-title callout callout-custom col-md-12 col-xs-12">Cadastrar remédio</h3>
 
                   <gmr-input-container errorMessage="Campo obrigatório com no minimo 3 caracteres e não pode conter espaços ou caracteres especiais." label="Nome do Remédio:">
                     <input name="des_name" class="form-control" placeholder="Coloque o nome do remédio" pattern="^[a-zA-Z_\-]+$" ngModel required minlength="3">

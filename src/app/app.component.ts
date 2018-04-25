@@ -37,7 +37,7 @@ export class AppComponent {
   @HostListener("window:scroll", ['$event'])
 onWindowScroll() {
 
-  if(window.pageYOffset > 500){
+  if(window.pageYOffset > 1000){
     this.showBackTop = true
   }else{
     this.showBackTop = false

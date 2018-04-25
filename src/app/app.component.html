@@ -5,11 +5,22 @@
   <!-- Fim do header -->
 
   <!-- Full Width Column -->
-  <div *ngIf="router.url != '/'" class="content-wrapper">
+  <div *ngIf="router.url != '/' && router.url != '/login'" class="content-wrapper">
+    <div class="content-wrapper background-image-custom-background-login">
       <div class="container">
-
         <router-outlet></router-outlet>
 
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="router.url == '/login'">
+    <div class="content-wrapper background-image-custom-background-login">
+        <div class="container">
+
+          <gmr-login></gmr-login>
+
+      </div>
     </div>
   </div>
 
@@ -22,6 +33,8 @@
       </div>
     </div>
   </div>
+
+
 
   <div [@flyInOut]="flyInOutVisibility" (click)="backToTop()" *ngIf="showBackTop" class="pull-right back-to-top-custom " style="margin-right:30px">
     <a class="wrapper-custom">Topo</a>

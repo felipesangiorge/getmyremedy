@@ -1,7 +1,7 @@
 
-<div class="col-md-4 col-xs-12 login-box-body-custom">
-  <label>Pesquisar por cidade:</label>
-      <select #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
+<div class="col-md-4 col-xs-12 padding-box-body-custom">
+  <label style="color:#137186;font-size:20px;margin-left:10px">Pesquisar por cidade:</label>
+      <select style="margin-left:10px" #des_category name="des_category" (change)="onOptionChange($event.target.value)" class="form-control" placeholder="Coloque a categoria">
 
         <option *ngFor="let elements of selectElements" [selected]="elements == 'Todos'" [value]="elements">{{elements}}</option>
       </select>

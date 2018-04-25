@@ -1,9 +1,9 @@
-<section class="content col-md-12 col-xs-12 ">
+<section class="content-custom-form col-md-12 col-xs-12 ">
 
   <div class=" col-xs-12 col-md-12">
     <div class="col-md-12">
         <div class="box-header with-border box box-primary">
-          <h3 class="box-title callout callout-info col-md-12 col-xs-12">Editar Usuário</h3>
+          <h3 class="box-title callout callout-custom col-md-12 col-xs-12">Editar Usuário</h3>
             <div class="form-group">
               <form #formUser="ngForm" novalidate>
 
@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-xs-12">
                   <label>Cidade: </label>
                   <select #des_city name="des_city" class="form-control " >
-                    <option *ngIf="stateDirty" [value]="user.des_city" selected >{{user.des_city}}</option>                
+                    <option *ngIf="stateDirty" [value]="user.des_city" selected >{{user.des_city}}</option>
                     <option *ngFor="let elements of selectElementsCity" [selected]="elements.Nome == user.des_city" [value]="elements.Nome">{{elements.Nome}}</option>
                   </select>
                 </div>
@@ -89,10 +89,10 @@
 
           <div >
 
-                <h3 class="box-title callout callout-info col-md-12 col-xs-12">Meus Anúncios</h3>
-                <h4 class="box-title col-md-12 col-xs-12">Atenção: Anúncios com a data vencida serão automaticamente excluidos</h4>
+                <h3 class="box-title callout callout-custom col-md-12 col-xs-12">Meus Anúncios</h3>
+                <h4 class="box-title col-md-12 col-xs-12" style="color:#137186">Atenção: Anúncios com a data vencida serão automaticamente excluidos</h4>
 
-                <div class="col-sm-6 col-xs-12" *ngFor="let item of menu | async">
+                <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let item of menu | async">
 
                 <gmr-menu-item class="menu-item-info-box-custom" [menuItem]="item" ></gmr-menu-item>
 

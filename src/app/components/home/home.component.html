@@ -1,34 +1,86 @@
 <section class="content-header"></section>
 
 <section class="content" >
-  <div class="jumbotron welcome-jumbotron" [@popOverStateOne]="show">
+  <div class="jumbotron welcome-jumbotron col-md-12 col-xs-12" [@popOverStateOne]="show">
     <h1>Bem vindo ao GetMyRemedy!</h1>
     <p>Procura doação de remédios ? Veja Quais estão disponíveis</p>
     <a class="btn btn-primary btn-lg" [routerLink]="['/remedys']">Pesquisar</a>
   </div>
 
-  <div class="jumbotron content-jumbotron" [@popOverStateTwo]="showTwo">
+  <div class="jumbotron col-md-12 col-xs-12"  [@popOverStateTwo]="showTwo">
+    <div class=" col-xs-12 col-md-6" (mouseover)="mouseOverWorks()"
+    (mouseleave)="mouseLeaveWorks()" [@mouseFocus]="focusWorks" [@popOverStateTwo]="showTwoWorks">
     <h1>Como funciona ! <i class="fa fa-gear"></i></h1>
-    <p>É bem simples, você deve procurar pelo remédio que precisa logo em cima clicando em pesquisar,</p>
-    <p>ou então escolhendo o menu Remédios. Poderá filtrar por cidade, categoria, da forma que precisar,</p>
-    <p>e combinar com a pessoa que está doando, sem custo e sem complicações!</p>
+      <div [@popOverStateTwo]="showTwoWorksText">
+        <p>É bem simples, você deve procurar pelo remédio que precisa logo em cima clicando em pesquisar,</p>
+        <p>ou então escolhendo o menu Remédios. Poderá filtrar por cidade, categoria, da forma que precisar,</p>
+        <p>e combinar com a pessoa que está doando, sem custo e sem complicações!</p>
+      </div>
+    </div>
+  <div class=" col-xs-12 col-md-6" (mouseover)="mouseOverPhone()"
+  (mouseleave)="mouseLeavePhone()" [@mouseFocus]="focusPhone" [@popOverStateTwo]="showTwoPhone">
+    <h3>Ajustavel a todas as telas ! <i class="fa"></i></h3>
+    <div class="col-md-4 col-xs-3"></div>
+    <div class="background-image-custom-smartphone col-md-4 col-xs-6">  </div>
+    <div class="col-md-4 col-xs-3"></div>
   </div>
-  <div class="jumbotron-custom jumbotron content-jumbotron" [@popOverStateTree]="showTree">
+</div>
+
+  <div class="jumbotron content-jumbotron col-md-12 col-xs-12" [@popOverStateTree]="showTree">
     <h3> Nós acreditamos em um mundo melhor! <i class="fa fa-globe"></i></h3>
-    <div class=" col-xs-12 col-md-4">
-      <h3> Economize dinheiro</h3>
-      <h1><i class="fa fa-money"></i></h1>
-    </div>
-    <div class=" col-xs-12 col-md-4">
-      <h3> Economize Tempo</h3>
-      <h1><i class="fa fa-clock-o"></i></h1>
-    </div>
+      <div class=" col-xs-12 col-md-4" (mouseover)="mouseOverMon()"
+      (mouseleave)="mouseLeaveMon()" [@mouseFocus]="focusMon" [@popOverStateTree]="showTreeMon">
 
-    <div class=" col-xs-12 col-md-4">
-      <h3> Economia Compartilhada</h3>
-      <h1><i class="fa fa-users"></i></h1>
-    </div>
+        <h3> Economize dinheiro</h3>
+        <h1><i class="fa fa-money"></i></h1>
+      </div>
+      <div class=" col-xs-12 col-md-4" (mouseover)="mouseOverTim()"
+      (mouseleave)="mouseLeaveTim()" [@mouseFocus]="focusTim" [@popOverStateTree]="showTreeTim">
 
-  </div>
+        <h3> Economize Tempo</h3>
+        <h1><i class="fa fa-clock-o"></i></h1>
+      </div>
+
+      <div class=" col-xs-12 col-md-4" (mouseover)="mouseOverSha()"
+      (mouseleave)="mouseLeaveSha()" [@mouseFocus]="focusSha" [@popOverStateTree]="showTreeSha">
+
+        <h3> Economia Compartilhada</h3>
+        <h1><i class="fa fa-users"></i></h1>
+      </div>
+
+   </div>
+
+   <div class="jumbotron col-md-12 col-xs-12"  [@popOverStateTwo]="showFour">
+     <div class=" col-xs-12 col-md-6" (mouseover)="mouseOverPhone()"
+     (mouseleave)="mouseLeavePhone()" [@mouseFocus]="focusPhone" [@popOverStateTwo]="showTwoPhone">
+
+
+       <div class="background-image-custom-cold-bear col-md-12 col-xs-12" [@popOverStateTwo]="showFourBear">  </div>
+
+     </div>
+
+     <div class=" col-xs-12 col-md-6" (mouseover)="mouseOverWorks()"
+     (mouseleave)="mouseLeaveWorks()" [@mouseFocus]="focusWorks" [@popOverStateTwo]="showFourText">
+
+          <h2>Vamos Compartilhar ! <i class="fa fa-share"></i></h2>
+
+       <div [@popOverStateTwo]="showFourText">
+         <p>Por ano são jogados fora toneladas de remédios que atingiram a data de validade,</p>
+         <p>muitos desses medicamentos poderiam estar em perfeito uso nas mãos de quem necessita,</p>
+         <p>segundo uma <a href="http://g1.globo.com/rio-de-janeiro/noticia/2016/02/inspecao-acha-mais-300-toneladas-de-remedio-vencido-em-deposito-no-rj.html">matéria no site do G1</a>
+           somente em 2016 foi encontrado um galpão com 300
+            toneladas de medicamentos desperdiçados, além de outras 700 toneladas de medicamentos vencidos já haviam sido incineradas,
+            segundo reportagem da "Veja", entre junho de 2014 e março de 2015.</p>
+
+       </div>
+     </div>
+ </div>
+
+ <div class="jumbotron col-md-12 col-xs-12"  [@popOverStateTwo]="showFive">
+   <h2>Faça sua parte!</h2>
+   <p>Agora mesmo, cadastre seu remédio que está parado.</p>
+   <a class="btn btn-primary btn-lg" [routerLink]="['/remedy-register']">Cadastrar</a>
+
+</div>
 
 </section>
