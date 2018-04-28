@@ -68,6 +68,10 @@ body {
 
 .background-image-custom{
   background-image: url('./assets/img/backImages/background.jpg');
+
+}
+.background-image-custom-shadow{
+  background:#0b426080;
 }
 
 .background-image-custom-smartphone{
@@ -87,7 +91,6 @@ body {
   height: 400px;
   overflow:auto;
 }
-
 .background-image-custom-background-login{
   background-image: url("./assets/img/backImages/background-login.jpg");
   background-repeat: no-repeat;
@@ -136,10 +139,38 @@ body {
 }
 
 /*Separação por resoluções ---------------------------------------------------------------------------------------------------*/
-@media screen and (min-width: 1400px) {
+@media screen and (max-width: 2400px) {
+  .background-image-custom-background-login{
+    background-image: url("./assets/img/backImages/background-login2400.jpg");
+  }
+}
+
+@media screen and (max-width: 1900px) {
+  .background-image-custom-background-login{
+    background-image: url("./assets/img/backImages/background-login1900.jpg");
+  }
   .content-custom{
     min-height: 120px;
-    margin-top: 170px;
+    margin-top: 160px;
+    margin-left:130px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .background-image-custom-background-login{
+    background-image: url("./assets/img/backImages/background-login1600.jpg");
+  }
+  .content-custom{
+    min-height: 120px;
+    margin-top: 165px;
+    margin-left:130px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .content-custom{
+    min-height: 120px;
+    margin-top: 132px;
     margin-left:130px;
   }
 
@@ -594,7 +625,7 @@ body {
     display: block;
     font-size: 20px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 50%;
     }
     .custom-color-white{
       margin-top: 20px;
@@ -631,7 +662,7 @@ body {
     display: block;
     font-size: 20px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 50%;
     }
   .content {
     min-height: 230px;
@@ -667,7 +698,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     max-width: 100%;
-    height: 250px;
+    height: 330px;
     overflow: auto;
   }
   .background-image-custom-cold-bear {
@@ -907,6 +938,12 @@ body {
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: -15px;
+  }
+  .place-info-box-detail {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+    width: 50%;
   }
 }
 
